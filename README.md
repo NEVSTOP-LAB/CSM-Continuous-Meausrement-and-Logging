@@ -1,5 +1,13 @@
 # JKISM++ vs Workers 
 
+Envrionments:
+- LabVIEW 2020 
+- JKISM++:    
+  - https://github.com/NEVSTOP-LAB/JKI-State-Machine-Plus-Plus
+  - https://github.com/NEVSTOP-LAB/JKISMPP-MassData-Parameter-Support
+- Workers:
+  - https://www.vipm.io/package/sc_workers_framework_core/?utm_source=vipm_desktop
+
 ### Both UI looks like:  
 ![image](https://github.com/NEVSTOP-LAB/JKISMPP-Continuous-Meausrement-and-Logging/assets/8196752/0f9f7452-f85c-4cf6-a5e2-45f4941a8b09)
 
