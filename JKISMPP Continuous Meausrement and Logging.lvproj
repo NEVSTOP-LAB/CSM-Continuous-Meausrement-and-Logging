@@ -22,8 +22,10 @@
 		<Property Name="server.vi.callsEnabled" Type="Bool">true</Property>
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
-		<Item Name="Acquisition.lvlib" Type="Library" URL="../Acquisition/Acquisition.lvlib"/>
-		<Item Name="Logging.lvlib" Type="Library" URL="../Logging/Logging.lvlib"/>
+		<Item Name="Reusable Modules" Type="Folder">
+			<Item Name="Acquisition.lvlib" Type="Library" URL="../Acquisition/Acquisition.lvlib"/>
+			<Item Name="Logging.lvlib" Type="Library" URL="../Logging/Logging.lvlib"/>
+		</Item>
 		<Item Name="UI.lvlib" Type="Library" URL="../UI/UI.lvlib"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
