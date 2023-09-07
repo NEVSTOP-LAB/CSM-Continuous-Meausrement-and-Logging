@@ -5,6 +5,7 @@
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">false</Property>
 	<Item Name="Support" Type="Folder">
+		<Item Name="__MGI Create Directory Chain.vi" Type="VI" URL="../_support/__MGI Create Directory Chain.vi"/>
 		<Item Name="Logging Configuration.ctl" Type="VI" URL="../_support/Logging Configuration.ctl"/>
 		<Item Name="Logging State.ctl" Type="VI" URL="../_support/Logging State.ctl"/>
 	</Item>
