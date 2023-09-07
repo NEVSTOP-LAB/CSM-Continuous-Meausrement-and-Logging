@@ -39,7 +39,7 @@ API: Start -> Acquisition
 API: Stop -> Acquisition
 ```
 
-## Application Module
+## Continuous Meausrement and Logging Application
 
 `Logging Module` and `Acquisition Module` don't know each other at all. User interface module is needed for Continuous Meausrement and Logging application. To make it sample(and easy to compare with workers), UI Module is also act as the controller of the applciation.
 
