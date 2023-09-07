@@ -1,5 +1,7 @@
 # JKISMPP Continuous Meausrement and Logging
 
+Accomplish application of Continuous Meausrement and Logging with JKISM++. It's much more simple, intuitive and graceful.
+
 ## Reusable Modules
 
 ### `Logging Module` : Logging 1D Waveform Data to tdms file.
@@ -37,7 +39,14 @@ API: Start -> Acquisition
 API: Stop -> Acquisition
 ```
 
-### Application Module
+## Application Module
+
+`Logging Module` and `Acquisition Module` don't know each other at all. User interface module is needed for Continuous Meausrement and Logging application. To make it sample(and easy to compare with workers), UI Module is also act as the controller of the applciation.
+
+When you need to use real hardare for data aquistion. What you need to do is create another JKISM module for your hardware wtih the same API/Satatus and eplace the `Acquisition Module` in UI module. 
+
+
+### UI Module
 
 Create UI, which is similar as Workers Continuous Meausrement and Logging Example.
 
