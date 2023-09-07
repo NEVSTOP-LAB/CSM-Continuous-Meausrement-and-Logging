@@ -16,6 +16,7 @@ Accomplish application of Continuous Meausrement and Logging with JKISM++. It's 
 **Example: (Suppose module name is "Logging")**
 ```
 API: Update Settings >> c:\_data -> Logging
+API: Log >> MassData-Start:89012,Size:1156 -> Logging
 API: Start -> Logging
 API: Stop -> Logging
 ```
