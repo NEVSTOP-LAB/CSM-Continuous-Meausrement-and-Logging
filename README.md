@@ -42,9 +42,9 @@ API: Stop -> Acquisition
 
 ## Continuous Meausrement and Logging Application
 
-`Logging Module` and `Acquisition Module` don't know each other at all. User interface module is needed for Continuous Meausrement and Logging application. To make it sample(and easy to compare with workers), UI Module is also act as the controller of the applciation.
+`Logging Module` and `Acquisition Module` don't know each other at all. User interface module is needed for Continuous Meausrement and Logging application. To make it sample(and easy to compare with workers), UI Module is also acting as the controller of the applciation.
 
-When you need to use real hardare for data aquistion. What you need to do is create another JKISM module for your hardware wtih the same API/Satatus and eplace the `Acquisition Module` in UI module. 
+When you need to use real hardare for data aquistion, create another JKISM module for your hardware wtih the same API/Satatus and replace the `Acquisition Module` in UI module. 
 
 
 ### UI Module
