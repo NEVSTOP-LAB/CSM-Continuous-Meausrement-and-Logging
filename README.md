@@ -8,9 +8,9 @@ Accomplish application of Continuous Meausrement and Logging with JKISM++. It's 
 
 | API | Description | Parameter |
 | --- | --- | --- |
-| `API: Update Settings` | Config API | Full path of data folder(Type: Plain String) |
+| `API: Update Settings` | Config API | Full path of data folder <br/> (Type: Plain String) |
 | `API: Start` | Start logging. Create the tdms file in data folder with time-based file name. | N/A |
-| `API: Log` | Log data to tdms file. | 1D Waveform array.(Type: [MassData Arguments](https://github.com/NEVSTOP-LAB/JKISMPP-MassData-Parameter-Support)) |
+| `API: Log` | Log data to tdms file. | 1D Waveform array.  <br/> (Type: [MassData Arguments](https://github.com/NEVSTOP-LAB/JKISMPP-MassData-Parameter-Support)) |
 | `API: Stop` | Stop logging. | N/A |
 
 **Example: (Suppose module name is "Logging")**
@@ -25,14 +25,14 @@ API: Stop -> Logging
 
 | API | Description | Parameter |
 | --- | --- | --- |
-| `API: Update Settings` | Config API | Cluster:{HW(String),Signal Type(Enum)} (Type: HexStr) |
+| `API: Update Settings` | Config API | Cluster:{HW(String),Signal Type(Enum)}  <br/> (Type: HexStr) |
 | `API: Start` | Start data generation every 200ms. | N/A |
 | `API: Stop` | Stop data generation. | N/A |
 
 
 | Status | Description | Parameter |
 | --- | --- | --- |
-| Acquired Waveform | Simulated Data.  | 1D Waveform array.(Type: [MassData Arguments](https://github.com/NEVSTOP-LAB/JKISMPP-MassData-Parameter-Support)) |
+| Acquired Waveform | Simulated Data.  | 1D Waveform array. <br/> (Type: [MassData Arguments](https://github.com/NEVSTOP-LAB/JKISMPP-MassData-Parameter-Support)) |
 
 **Example: (Suppose module name is "Acquisition")**
 ```
