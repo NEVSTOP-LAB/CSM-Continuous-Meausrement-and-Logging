@@ -44,12 +44,12 @@ API: Stop -> Acquisition
 
 `Logging Module` and `Acquisition Module` don't know each other at all. User interface module is needed for Continuous Meausrement and Logging application. To make it sample(and easy to compare with workers), UI Module is also acting as the controller of the applciation.
 
-When you need to use real hardare for data aquistion, create another JKISM module for your hardware wtih the same API/Satatus and replace the `Acquisition Module` in UI module. 
+When you need to use real hardare for data aquistion, create another JKISM module for your hardware wtih the same API/Satatus and replace the `Acquisition Module` in UI module.
 
 
 ### UI Module
 
-Create UI, which is similar as Workers Continuous Meausrement and Logging Example.
+Create UI, which is similar as [Workers Continuous Meausrement and Logging Example](https://www.vipm.io/package/sc_workers_framework_core/)
 
 ![Alt text](./_doc/mainUI.png)
 
