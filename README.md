@@ -88,6 +88,8 @@ Events: Unregister
 Exits
 ```
 
+![Macro: Initialize](./_doc/Exit%20Process.png)
+
 #### Start Process (Macro: Start)
 
 Update UI and trigger submodule to work with start message. Register "Acquired Waveform" status of "Acquisition" to "API: Log" state of "Logging". When "Acquired Waveform" status occurs, "logging" will go to "API: Log" automatically.
