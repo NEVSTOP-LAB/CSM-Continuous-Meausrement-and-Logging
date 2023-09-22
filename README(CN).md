@@ -2,6 +2,11 @@
 
 基于JKISM++ 框架更简单、更直观，更优雅的实现连续测量和记录应用的示例。
 
+### 依赖
+
+1. Above [JKISM++ v2023.9.21.235707 by NEVSTOP](https://github.com/NEVSTOP-LAB/JKI-State-Machine-Plus-Plus/actions/runs/6264041302)
+2. Above [JKISM++ MassData Parameter Support v2023.9.6.220815 by NEVSTOP](https://github.com/NEVSTOP-LAB/JKISMPP-MassData-Parameter-Support/actions/runs/6105143819)
+
 ## 可复用的底层模块
 
 ### `Logging Module` : 将1D波形数据记录到TDMS文件中。

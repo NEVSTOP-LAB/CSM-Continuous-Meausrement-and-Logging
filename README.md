@@ -2,6 +2,12 @@
 
 Accomplish application of Continuous Meausrement and Logging with JKISM++. It's much more simple, intuitive and graceful.
 
+### Dependency
+
+1. Above [JKISM++ v2023.9.21.235707 by NEVSTOP](https://github.com/NEVSTOP-LAB/JKI-State-Machine-Plus-Plus/actions/runs/6264041302)
+2. Above [JKISM++ MassData Parameter Support v2023.9.6.220815 by NEVSTOP](https://github.com/NEVSTOP-LAB/JKISMPP-MassData-Parameter-Support/actions/runs/6105143819)
+
+
 ## Reusable Modules
 
 ### `Logging Module` : Logging 1D Waveform Data to tdms file.
