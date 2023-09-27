@@ -26,7 +26,6 @@
 			<Item Name="Acquisition.lvlib" Type="Library" URL="../Acquisition/Acquisition.lvlib"/>
 			<Item Name="Logging.lvlib" Type="Library" URL="../Logging/Logging.lvlib"/>
 		</Item>
-		<Item Name="JKI State Machine++.lvlib" Type="Library" URL="/&lt;userlib&gt;/_NEVSTOP/JKI State Machine++/JKI State Machine++.lvlib"/>
 		<Item Name="UI.lvlib" Type="Library" URL="../UI/UI.lvlib"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
@@ -115,6 +114,7 @@
 			</Item>
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="JKISM++ MassData Parameter Support.lvlib" Type="Library" URL="/&lt;userlib&gt;/_NEVSTOP/JKI State Machine++/addons/MassData-Parameter/JKISM++ MassData Parameter Support.lvlib"/>
+				<Item Name="JKI State Machine++.lvlib" Type="Library" URL="/&lt;userlib&gt;/_NEVSTOP/JKI State Machine++/JKI State Machine++.lvlib"/>
 			</Item>
 			<Item Name="lvanlys.dll" Type="Document" URL="/&lt;resource&gt;/lvanlys.dll"/>
 		</Item>
