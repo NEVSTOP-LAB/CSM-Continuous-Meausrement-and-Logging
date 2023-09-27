@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0' encoding='UTF-8'?>
-<Project Type="Project" LVVersion="20008000">
+<Project Type="Project" LVVersion="17008000">
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Property Name="NI.Project.Description" Type="Str"></Property>
 	<Property Name="SMProvider.SMVersion" Type="Int">201310</Property>
@@ -26,6 +26,7 @@
 			<Item Name="Acquisition.lvlib" Type="Library" URL="../Acquisition/Acquisition.lvlib"/>
 			<Item Name="Logging.lvlib" Type="Library" URL="../Logging/Logging.lvlib"/>
 		</Item>
+		<Item Name="JKI State Machine++.lvlib" Type="Library" URL="/&lt;userlib&gt;/_NEVSTOP/JKI State Machine++/JKI State Machine++.lvlib"/>
 		<Item Name="UI.lvlib" Type="Library" URL="../UI/UI.lvlib"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
@@ -113,25 +114,7 @@
 				<Item Name="Set Busy.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/cursorutil.llb/Set Busy.vi"/>
 			</Item>
 			<Item Name="user.lib" Type="Folder">
-				<Item Name="JKISM++ Convert HexStr to Data.vi" Type="VI" URL="/&lt;userlib&gt;/_NEVSTOP/JKI State Machine++/AdvanceAPI/JKISM++ Convert HexStr to Data.vi"/>
-				<Item Name="JKISM++ Convert Data to HexStr.vi" Type="VI" URL="/&lt;userlib&gt;/_NEVSTOP/JKI State Machine++/AdvanceAPI/JKISM++ Convert Data to HexStr.vi"/>
-				<Item Name="JKISM++ Broadcast Status Change.vi" Type="VI" URL="/&lt;userlib&gt;/_NEVSTOP/JKI State Machine++/AdvanceAPI/JKISM++ Broadcast Status Change.vi"/>
-				<Item Name="Parse State Queue++.vi" Type="VI" URL="/&lt;userlib&gt;/_NEVSTOP/JKI State Machine++/Parse State Queue++.vi"/>
-				<Item Name="String History Cacher.vi" Type="VI" URL="/&lt;userlib&gt;/_NEVSTOP/JKI State Machine++/Utility/String History Cacher.vi"/>
-				<Item Name="Build Internal State String.vi" Type="VI" URL="/&lt;userlib&gt;/_NEVSTOP/JKI State Machine++/Utility/Build Internal State String.vi"/>
-				<Item Name="JKISM++ Convert MassData to Argument.vim" Type="VI" URL="/&lt;userlib&gt;/_NEVSTOP/JKI State Machine++/addons/MassData-Parameter/JKISM++ Convert MassData to Argument.vim"/>
-				<Item Name="FGV-MassData.vi" Type="VI" URL="/&lt;userlib&gt;/_NEVSTOP/JKI State Machine++/addons/MassData-Parameter/_support/FGV-MassData.vi"/>
-				<Item Name="Operation-FGV-MassData.ctl" Type="VI" URL="/&lt;userlib&gt;/_NEVSTOP/JKI State Machine++/addons/MassData-Parameter/_support/Operation-FGV-MassData.ctl"/>
-				<Item Name="JKISM++ Convert Argument to MassData.vim" Type="VI" URL="/&lt;userlib&gt;/_NEVSTOP/JKI State Machine++/addons/MassData-Parameter/JKISM++ Convert Argument to MassData.vim"/>
-				<Item Name="Timeout Selector.vi" Type="VI" URL="/&lt;userlib&gt;/_NEVSTOP/JKI State Machine++/Utility/Timeout Selector.vi"/>
-				<Item Name="JKISM++ Get New State Notifier Event.vi" Type="VI" URL="/&lt;userlib&gt;/_NEVSTOP/JKI State Machine++/AdvanceAPI/JKISM++ Get New State Notifier Event.vi"/>
-				<Item Name="Add State(s) to Queue By BOOL++.vi" Type="VI" URL="/&lt;userlib&gt;/_NEVSTOP/JKI State Machine++/Add State(s) to Queue By BOOL++.vi"/>
-				<Item Name="Add State(s) to Queue By BOOL(Element).vi" Type="VI" URL="/&lt;userlib&gt;/_NEVSTOP/JKI State Machine++/_Polymophic/Add State(s) to Queue By BOOL(Element).vi"/>
-				<Item Name="Build State String with Arguments++.vi" Type="VI" URL="/&lt;userlib&gt;/_NEVSTOP/JKI State Machine++/Build State String with Arguments++.vi"/>
-				<Item Name="JKISM++ Message Type.ctl" Type="VI" URL="/&lt;userlib&gt;/_NEVSTOP/JKI State Machine++/AdvanceAPI/JKISM++ Message Type.ctl"/>
-				<Item Name="JKISM++ Register Status Change.vi" Type="VI" URL="/&lt;userlib&gt;/_NEVSTOP/JKI State Machine++/AdvanceAPI/JKISM++ Register Status Change.vi"/>
-				<Item Name="JKISM++ Unregister Status Change.vi" Type="VI" URL="/&lt;userlib&gt;/_NEVSTOP/JKI State Machine++/AdvanceAPI/JKISM++ Unregister Status Change.vi"/>
-				<Item Name="JKISM++ Config MassData Parameter Cache Size.vi" Type="VI" URL="/&lt;userlib&gt;/_NEVSTOP/JKI State Machine++/addons/MassData-Parameter/JKISM++ Config MassData Parameter Cache Size.vi"/>
+				<Item Name="JKISM++ MassData Parameter Support.lvlib" Type="Library" URL="/&lt;userlib&gt;/_NEVSTOP/JKI State Machine++/addons/MassData-Parameter/JKISM++ MassData Parameter Support.lvlib"/>
 			</Item>
 			<Item Name="lvanlys.dll" Type="Document" URL="/&lt;resource&gt;/lvanlys.dll"/>
 		</Item>
