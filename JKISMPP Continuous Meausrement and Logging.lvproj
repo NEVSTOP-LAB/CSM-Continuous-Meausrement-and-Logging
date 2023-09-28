@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0' encoding='UTF-8'?>
-<Project Type="Project" LVVersion="20008000">
+<Project Type="Project" LVVersion="17008000">
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Property Name="NI.Project.Description" Type="Str"></Property>
 	<Property Name="SMProvider.SMVersion" Type="Int">201310</Property>
@@ -113,8 +113,8 @@
 				<Item Name="Set Busy.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/cursorutil.llb/Set Busy.vi"/>
 			</Item>
 			<Item Name="user.lib" Type="Folder">
-				<Item Name="JKI State Machine++.lvlib" Type="Library" URL="/&lt;userlib&gt;/_NEVSTOP/JKI State Machine++/JKI State Machine++.lvlib"/>
 				<Item Name="JKISM++ MassData Parameter Support.lvlib" Type="Library" URL="/&lt;userlib&gt;/_NEVSTOP/JKI State Machine++/addons/MassData-Parameter/JKISM++ MassData Parameter Support.lvlib"/>
+				<Item Name="JKI State Machine++.lvlib" Type="Library" URL="/&lt;userlib&gt;/_NEVSTOP/JKI State Machine++/JKI State Machine++.lvlib"/>
 			</Item>
 			<Item Name="lvanlys.dll" Type="Document" URL="/&lt;resource&gt;/lvanlys.dll"/>
 		</Item>
