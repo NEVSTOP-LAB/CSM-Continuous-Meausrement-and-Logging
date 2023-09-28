@@ -1,5 +1,7 @@
 # JKISMPP Continuous Meausrement and Logging
 
+[![Image](https://www.vipm.io/package/nevstop_lib_jkism++_continuous_meausrement_and_logging_example/badge.svg?metric=installs)](https://www.vipm.io/package/nevstop_lib_jkism++_continuous_meausrement_and_logging_example/) [![Image](https://www.vipm.io/package/nevstop_lib_jkism++_continuous_meausrement_and_logging_example/badge.svg?metric=stars)](https://www.vipm.io/package/nevstop_lib_jkism++_continuous_meausrement_and_logging_example/)
+
 Accomplish application of Continuous Meausrement and Logging with JKISM++. It's much more simple, intuitive and graceful.
 
 ### Dependency
