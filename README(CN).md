@@ -1,11 +1,11 @@
-# JKISMPP Continuous Meausrement and Logging
+# CSM Continuous Meausrement and Logging
 
-基于JKISM++ 框架更简单、更直观，更优雅的实现连续测量和记录应用的示例。
+基于 CSM 框架更简单、更直观，更优雅的实现连续测量和记录应用的示例。
 
 ### 依赖
 
-1. Above [JKISM++ v2023.9.21.235707 by NEVSTOP](https://github.com/NEVSTOP-LAB/JKI-State-Machine-Plus-Plus/actions/runs/6264041302)
-2. Above [JKISM++ MassData Parameter Support v2023.9.6.220815 by NEVSTOP](https://github.com/NEVSTOP-LAB/JKISMPP-MassData-Parameter-Support/actions/runs/6105143819)
+1. Above [CSM v2023.9.21.235707 by NEVSTOP](https://github.com/NEVSTOP-LAB/JKI-State-Machine-Plus-Plus/actions/runs/6264041302)
+2. Above [CSM MassData Parameter Support v2023.9.6.220815 by NEVSTOP](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support/actions/runs/6105143819)
 
 ## 可复用的底层模块
 
@@ -15,7 +15,7 @@
 | --- | --- | --- |
 | `API: Update Settings` | 配置API | 数据文件夹的完整路径 <br/> (类型: 普通字符串)|
 | `API: Start` | 开始记录。在数据文件夹中创建基于时间的文件名的TDMS文件。 | N/A |
-| `API: Log` | 将数据记录到TDMS文件中。 | 1D波形数组。 <br/> (类型: (Type: [MassData参数](https://github.com/NEVSTOP-LAB/JKISMPP-MassData-Parameter-Support)) |
+| `API: Log` | 将数据记录到TDMS文件中。 | 1D波形数组。 <br/> (类型: (Type: [MassData参数](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
 | `API: Stop` | 停止记录。 | N/A |
 
 **示例：（假设模块名称为“Logging”）**
@@ -37,7 +37,7 @@ API: Stop -> Logging
 
 | Status | 描述 | 参数 |
 | --- | --- | --- |
-| Acquired Waveform | 模拟生成的数据  | 1D波形数组. <br/> (Ty类型pe: [MassData参数](https://github.com/NEVSTOP-LAB/JKISMPP-MassData-Parameter-Support)) |
+| Acquired Waveform | 模拟生成的数据  | 1D波形数组. <br/> (Ty类型pe: [MassData参数](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
 
 **示例：（假设模块名称为“Acquisition”）**
 ```
@@ -58,7 +58,7 @@ API: Stop -> Acquisition
 
 ![Alt text](./_doc/mainUI.png)
 
-使用 JKISM++ 模板创建块图，将 "Logging Module" 和 "Acquisition Module" 作为子模块放置在VI后面板。
+使用 CSM 模板创建块图，将 "Logging Module" 和 "Acquisition Module" 作为子模块放置在VI后面板。
 
 ![mainBD](./_doc/MainBD.png)
 
