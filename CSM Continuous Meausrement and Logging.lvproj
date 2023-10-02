@@ -113,8 +113,6 @@
 				<Item Name="Set Busy.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/cursorutil.llb/Set Busy.vi"/>
 			</Item>
 			<Item Name="user.lib" Type="Folder">
-				<Item Name="JKISM++ Register Status Change.vi" Type="VI" URL="/&lt;userlib&gt;/_NEVSTOP/JKI State Machine++/AdvanceAPI/JKISM++ Register Status Change.vi"/>
-				<Item Name="JKISM++ Unregister Status Change.vi" Type="VI" URL="/&lt;userlib&gt;/_NEVSTOP/JKI State Machine++/AdvanceAPI/JKISM++ Unregister Status Change.vi"/>
 				<Item Name="Communicable State Machine.lvlib" Type="Library" URL="/&lt;userlib&gt;/_NEVSTOP/Communicable State Machine(CSM)/Communicable State Machine.lvlib"/>
 				<Item Name="CSM MassData Parameter Support.lvlib" Type="Library" URL="/&lt;userlib&gt;/_NEVSTOP/Communicable State Machine(CSM)/addons/MassData-Parameter/CSM MassData Parameter Support.lvlib"/>
 			</Item>
