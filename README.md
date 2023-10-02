@@ -1,13 +1,14 @@
-# JKISMPP Continuous Meausrement and Logging
+# CSM Continuous Meausrement and Logging
 
-[![Image](https://www.vipm.io/package/nevstop_lib_jkism++_continuous_meausrement_and_logging_example/badge.svg?metric=installs)](https://www.vipm.io/package/nevstop_lib_jkism++_continuous_meausrement_and_logging_example/) [![Image](https://www.vipm.io/package/nevstop_lib_jkism++_continuous_meausrement_and_logging_example/badge.svg?metric=stars)](https://www.vipm.io/package/nevstop_lib_jkism++_continuous_meausrement_and_logging_example/)
+[![Image](https://www.vipm.io/package/nevstop_lib_CSM_continuous_meausrement_and_logging_example/badge.svg?metric=installs)](https://www.vipm.io/package/nevstop_lib_CSM_continuous_meausrement_and_logging_example/) [![Image](https://www.vipm.io/package/nevstop_lib_CSM_continuous_meausrement_and_logging_example/badge.svg?metric=stars)](https://www.vipm.io/package/nevstop_lib_CSM_continuous_meausrement_and_logging_example/)
 
-Accomplish application of Continuous Meausrement and Logging with JKISM++. It's much more simple, intuitive and graceful.
+Accomplish application of Continuous Measurement and Logging with CSM. It's much more simple, intuitive and graceful.
 
 ### Dependency
 
-1. Above [JKISM++ v2023.9.21.235707 by NEVSTOP](https://github.com/NEVSTOP-LAB/JKI-State-Machine-Plus-Plus/actions/runs/6264041302)
-2. Above [JKISM++ MassData Parameter Support v2023.9.6.220815 by NEVSTOP](https://github.com/NEVSTOP-LAB/JKISMPP-MassData-Parameter-Support/actions/runs/6105143819)
+This Package depends on these other packages:
+Communicable State Machine(CSM) >= 2023.10.2.123812
+CSM MassData Parameter Support >= 2023.10.2.224334
 
 
 ## Reusable Modules
@@ -18,7 +19,7 @@ Accomplish application of Continuous Meausrement and Logging with JKISM++. It's 
 | --- | --- | --- |
 | `API: Update Settings` | Config API | Full path of data folder <br/> (Type: Plain String) |
 | `API: Start` | Start logging. Create the tdms file in data folder with time-based file name. | N/A |
-| `API: Log` | Log data to tdms file. | 1D Waveform array.  <br/> (Type: [MassData Arguments](https://github.com/NEVSTOP-LAB/JKISMPP-MassData-Parameter-Support)) |
+| `API: Log` | Log data to tdms file. | 1D Waveform array.  <br/> (Type: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
 | `API: Stop` | Stop logging. | N/A |
 
 **Example: (Suppose module name is "Logging")**
@@ -40,7 +41,7 @@ API: Stop -> Logging
 
 | Status | Description | Parameter |
 | --- | --- | --- |
-| Acquired Waveform | Simulated Data.  | 1D Waveform array. <br/> (Type: [MassData Arguments](https://github.com/NEVSTOP-LAB/JKISMPP-MassData-Parameter-Support)) |
+| Acquired Waveform | Simulated Data.  | 1D Waveform array. <br/> (Type: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
 
 **Example: (Suppose module name is "Acquisition")**
 ```
@@ -61,7 +62,7 @@ Create UI, which is similar as [Workers Continuous Meausrement and Logging Examp
 
 ![Alt text](./_doc/mainUI.png)
 
-Create Block Diagram with JKISM++ Template. Drop `Logging Module` and `Acquisition Module` as submodules.
+Create Block Diagram with CSM Template. Drop `Logging Module` and `Acquisition Module` as submodules.
 
 ![mainBD](./_doc/MainBD.png)
 
