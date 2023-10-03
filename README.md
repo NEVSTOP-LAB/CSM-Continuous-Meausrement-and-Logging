@@ -1,6 +1,6 @@
 # CSM Continuous Meausrement and Logging
 
-[![Image](https://www.vipm.io/package/nevstop_lib_CSM_continuous_meausrement_and_logging_example/badge.svg?metric=installs)](https://www.vipm.io/package/nevstop_lib_CSM_continuous_meausrement_and_logging_example/) [![Image](https://www.vipm.io/package/nevstop_lib_CSM_continuous_meausrement_and_logging_example/badge.svg?metric=stars)](https://www.vipm.io/package/nevstop_lib_CSM_continuous_meausrement_and_logging_example/)
+[![Image](https://www.vipm.io/package/nevstop_lib_csm_continuous_meausrement_and_logging_example/badge.svg?metric=installs)](https://www.vipm.io/package/nevstop_lib_csm_continuous_meausrement_and_logging_example/) [![Image](https://www.vipm.io/package/nevstop_lib_csm_continuous_meausrement_and_logging_example/badge.svg?metric=stars)](https://www.vipm.io/package/nevstop_lib_csm_continuous_meausrement_and_logging_example/)
 
 Accomplish application of Continuous Measurement and Logging with CSM. It's much more simple, intuitive and graceful.
 
