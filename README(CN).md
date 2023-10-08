@@ -4,8 +4,8 @@
 
 ### 依赖
 
-1. Above [CSM v2023.9.21.235707 by NEVSTOP](https://github.com/NEVSTOP-LAB/JKI-State-Machine-Plus-Plus/actions/runs/6264041302)
-2. Above [CSM MassData Parameter Support v2023.9.6.220815 by NEVSTOP](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support/actions/runs/6105143819)
+ - Communicable State Machine(CSM) >= 2023.10.2.123812
+ - CSM MassData Parameter Support >= 2023.10.2.224334
 
 ## 可复用的底层模块
 
