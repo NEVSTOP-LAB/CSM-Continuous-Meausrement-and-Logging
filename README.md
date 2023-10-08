@@ -7,8 +7,8 @@ Accomplish application of Continuous Measurement and Logging with CSM. It's much
 ### Dependency
 
 This Package depends on these other packages:
-Communicable State Machine(CSM) >= 2023.10.2.123812
-CSM MassData Parameter Support >= 2023.10.2.224334
+ - Communicable State Machine(CSM) >= 2023.10.2.123812
+ - CSM MassData Parameter Support >= 2023.10.2.224334
 
 
 ## Reusable Modules
