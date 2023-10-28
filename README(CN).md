@@ -4,8 +4,8 @@
 
 ### 依赖
 
- - Communicable State Machine(CSM) >= 2023.10.2.123812
- - CSM MassData Parameter Support >= 2023.10.2.224334
+    Communicable State Machine(CSM) >= 2023.10.27.161251
+    CSM MassData Parameter Support >= 2023.10.27.231325
 
 ## 可复用的底层模块
 
@@ -37,7 +37,7 @@ API: Stop -> Logging
 
 | Status | 描述 | 参数 |
 | --- | --- | --- |
-| Acquired Waveform | 模拟生成的数据  | 1D波形数组. <br/> (Ty类型pe: [MassData参数](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
+| Acquired Waveform | 模拟生成的数据  | 1D波形数组. <br/> (类型: [MassData参数](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
 
 **示例：（假设模块名称为“Acquisition”）**
 ```
