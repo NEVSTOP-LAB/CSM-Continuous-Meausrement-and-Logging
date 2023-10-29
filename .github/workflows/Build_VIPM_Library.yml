@@ -41,6 +41,7 @@ jobs:
           NEVSTOP-FTP-PORT: ${{ secrets.VIPM_FTP_PORT }}
           PackageName: Communicable-State-Machine
           PackageName1: CSM-MassData-Parameter-Support
+          PackageName2: CSM-API-String-Arguments-Support
 
       # Runs a set of commands using the runners shell
       - name: BuildDailyVIP
