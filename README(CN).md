@@ -5,6 +5,7 @@
 ### 依赖
 
     Communicable State Machine(CSM) >= 2023.10.27.161251
+    CSM API String Arguments Support >= 2023.10.27.222212
     CSM MassData Parameter Support >= 2023.10.27.231325
 
 ## 可复用的底层模块
