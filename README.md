@@ -1,17 +1,19 @@
 # CSM Continuous Measurement and Logging
 
-[![Image](https://www.vipm.io/package/nevstop_lib_csm_continuous_meausrement_and_logging_example/badge.svg?metric=installs)](https://www.vipm.io/package/nevstop_lib_csm_continuous_meausrement_and_logging_example/) 
+[![Image](https://www.vipm.io/package/nevstop_lib_csm_continuous_meausrement_and_logging_example/badge.svg?metric=installs)](https://www.vipm.io/package/nevstop_lib_csm_continuous_meausrement_and_logging_example/)
 [![Image](https://www.vipm.io/package/nevstop_lib_csm_continuous_meausrement_and_logging_example/badge.svg?metric=stars)](https://www.vipm.io/package/nevstop_lib_csm_continuous_meausrement_and_logging_example/)
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![GitHub all releases](https://img.shields.io/github/downloads/NEVSTOP-LAB/CSM-Continuous-Meausrement-and-Logging/total)](https://github.com/NEVSTOP-LAB/CSM-Continuous-Meausrement-and-Logging/releases)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 Accomplish application of Continuous Measurement and Logging with CSM. It's much more simple, intuitive and graceful.
 
 ### Dependency
 
 This Package depends on these other packages:
- - Communicable State Machine(CSM) >= 2023.10.2.123812
- - CSM MassData Parameter Support >= 2023.10.2.224334
+
+    Communicable State Machine(CSM) >= 2023.10.27.161251
+    CSM API String Arguments Support >= 2023.10.27.222212
+    CSM MassData Parameter Support >= 2023.10.27.231325
 
 
 ## Reusable Modules
@@ -38,6 +40,7 @@ API: Stop -> Logging
 | API | Description | Parameter |
 | --- | --- | --- |
 | `API: Update Settings` | Config API | Cluster:{HW(String),Signal Type(Enum)}  <br/> (Type: HexStr) |
+| `API: Update Settings v2.0` | Config API | HW:(string);Signal Type:(Sine Wave \| Square with Noise)  <br/> (Type: API String) |
 | `API: Start` | Start data generation every 200ms. | N/A |
 | `API: Stop` | Stop data generation. | N/A |
 
@@ -50,18 +53,20 @@ API: Stop -> Logging
 ```
 API: Start -> Acquisition
 API: Stop -> Acquisition
+//With [CSM-API-String-Arguments-Support](https://github.com/NEVSTOP-LAB/CSM-API-String-Arguments-Support), update 'Signal Type' with plain text description
+API: Update Settings v2.0 >> Signal Type:Sine Wave -> -> Acquisition
 ```
 
-## Continuous Meausrement and Logging Application
+## Continuous Measurement and Logging Application
 
-`Logging Module` and `Acquisition Module` don't know each other at all. User interface module is needed for Continuous Meausrement and Logging application. To make it sample(and easy to compare with workers), UI Module is also acting as the controller of the applciation.
+`Logging Module` and `Acquisition Module` don't know each other at all. User interface module is needed for Continuous Measurement and Logging application. To make it sample(and easy to compare with workers), UI Module is also acting as the controller of the application.
 
-When you need to use real hardare for data aquistion, create another JKISM module for your hardware wtih the same API/Satatus and replace the `Acquisition Module` in UI module.
+When you need to use real hardware for data acquisition, create another JKISM module for your hardware with the same API/Status and replace the `Acquisition Module` in UI module.
 
 
 ### UI Module
 
-Create UI, which is similar as [Workers Continuous Meausrement and Logging Example](https://www.vipm.io/package/sc_workers_framework_core/)
+Create UI, which is similar as [Workers Continuous Measurement and Logging Example](https://www.vipm.io/package/sc_workers_framework_core/)
 
 ![Alt text](./_doc/mainUI.png)
 
