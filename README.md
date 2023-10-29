@@ -38,7 +38,7 @@ API: Stop -> Logging
 | API | Description | Parameter |
 | --- | --- | --- |
 | `API: Update Settings` | Config API | Cluster:{HW(String),Signal Type(Enum)}  <br/> (Type: HexStr) |
-| `API: Update Settings v2.0` | Config API | HW:(string);Signal Type:(Sine Wave|Square with Noise)  <br/> (Type: API String, ) |
+| `API: Update Settings v2.0` | Config API | HW:(string);Signal Type:(Sine Wave \| Square with Noise)  <br/> (Type: API String) |
 | `API: Start` | Start data generation every 200ms. | N/A |
 | `API: Stop` | Stop data generation. | N/A |
 
