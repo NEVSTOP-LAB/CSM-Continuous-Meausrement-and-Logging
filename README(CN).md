@@ -1,4 +1,4 @@
-# CSM Continuous Meausrement and Logging
+# CSM Continuous Measurement and Logging
 
 基于 CSM 框架更简单、更直观，更优雅的实现连续测量和记录应用的示例。
 
@@ -31,6 +31,7 @@ API: Stop -> Logging
 | API | 描述 | 参数 |
 | --- | --- | --- |
 | `API: Update Settings` | 配置API | Cluster:{HW(String),Signal Type(Enum)}  <br/> (类型: HexStr) |
+| `API: Update Settings v2.0` | Config API | HW:(string);Signal Type:(Sine Wave|Square with Noise)  <br/> (类型: API String) |
 | `API: Start` | 开始每200毫秒生成数据。 | N/A |
 | `API: Stop` | Stop data generation. | N/A |
 
@@ -43,6 +44,8 @@ API: Stop -> Logging
 ```
 API: Start -> Acquisition
 API: Stop -> Acquisition
+//使用[CSM-API-String-Arguments-Support](https://github.com/NEVSTOP-LAB/CSM-API-String-Arguments-Support),通过字符描述'Signal Type'，更新模块配置
+API: Update Settings v2.0 >> Signal Type:Sine Wave -> -> Acquisition
 ```
 
 ## 连续测量和记录应用程序
@@ -54,7 +57,7 @@ API: Stop -> Acquisition
 
 ### 用户界面模块
 
-参考 [Workers Continuous Meausrement and Logging Example](https://www.vipm.io/package/sc_workers_framework_core/) 创建用户界面.
+参考 [Workers Continuous Measurement and Logging Example](https://www.vipm.io/package/sc_workers_framework_core/) 创建用户界面.
 
 ![Alt text](./_doc/mainUI.png)
 

@@ -1,9 +1,9 @@
 # CSM Continuous Measurement and Logging
 
-[![Image](https://www.vipm.io/package/nevstop_lib_csm_continuous_meausrement_and_logging_example/badge.svg?metric=installs)](https://www.vipm.io/package/nevstop_lib_csm_continuous_meausrement_and_logging_example/)
-[![Image](https://www.vipm.io/package/nevstop_lib_csm_continuous_meausrement_and_logging_example/badge.svg?metric=stars)](https://www.vipm.io/package/nevstop_lib_csm_continuous_meausrement_and_logging_example/)
+[![Image](https://www.vipm.io/package/nevstop_lib_csm_continuous_measurement_and_logging_example/badge.svg?metric=installs)](https://www.vipm.io/package/nevstop_lib_csm_continuous_measurement_and_logging_example/)
+[![Image](https://www.vipm.io/package/nevstop_lib_csm_continuous_measurement_and_logging_example/badge.svg?metric=stars)](https://www.vipm.io/package/nevstop_lib_csm_continuous_measurement_and_logging_example/)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![GitHub all releases](https://img.shields.io/github/downloads/NEVSTOP-LAB/CSM-Continuous-Meausrement-and-Logging/total)](https://github.com/NEVSTOP-LAB/CSM-Continuous-Meausrement-and-Logging/releases)
+[![GitHub all releases](https://img.shields.io/github/downloads/NEVSTOP-LAB/CSM-Continuous-Measurement-and-Logging/total)](https://github.com/NEVSTOP-LAB/CSM-Continuous-Measurement-and-Logging/releases)
 
 Accomplish application of Continuous Measurement and Logging with CSM. It's much more simple, intuitive and graceful.
 
@@ -38,6 +38,7 @@ API: Stop -> Logging
 | API | Description | Parameter |
 | --- | --- | --- |
 | `API: Update Settings` | Config API | Cluster:{HW(String),Signal Type(Enum)}  <br/> (Type: HexStr) |
+| `API: Update Settings v2.0` | Config API | HW:(string);Signal Type:(Sine Wave|Square with Noise)  <br/> (Type: API String, ) |
 | `API: Start` | Start data generation every 200ms. | N/A |
 | `API: Stop` | Stop data generation. | N/A |
 
@@ -50,18 +51,20 @@ API: Stop -> Logging
 ```
 API: Start -> Acquisition
 API: Stop -> Acquisition
+//With [CSM-API-String-Arguments-Support](https://github.com/NEVSTOP-LAB/CSM-API-String-Arguments-Support), update 'Signal Type' with plain text description
+API: Update Settings v2.0 >> Signal Type:Sine Wave -> -> Acquisition
 ```
 
-## Continuous Meausrement and Logging Application
+## Continuous Measurement and Logging Application
 
-`Logging Module` and `Acquisition Module` don't know each other at all. User interface module is needed for Continuous Meausrement and Logging application. To make it sample(and easy to compare with workers), UI Module is also acting as the controller of the applciation.
+`Logging Module` and `Acquisition Module` don't know each other at all. User interface module is needed for Continuous Measurement and Logging application. To make it sample(and easy to compare with workers), UI Module is also acting as the controller of the application.
 
-When you need to use real hardare for data aquistion, create another JKISM module for your hardware wtih the same API/Satatus and replace the `Acquisition Module` in UI module.
+When you need to use real hardware for data acquisition, create another JKISM module for your hardware with the same API/Status and replace the `Acquisition Module` in UI module.
 
 
 ### UI Module
 
-Create UI, which is similar as [Workers Continuous Meausrement and Logging Example](https://www.vipm.io/package/sc_workers_framework_core/)
+Create UI, which is similar as [Workers Continuous Measurement and Logging Example](https://www.vipm.io/package/sc_workers_framework_core/)
 
 ![Alt text](./_doc/mainUI.png)
 
