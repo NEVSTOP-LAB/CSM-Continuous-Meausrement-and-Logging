@@ -31,7 +31,7 @@ API: Stop -> Logging
 | API | 描述 | 参数 |
 | --- | --- | --- |
 | `API: Update Settings` | 配置API | Cluster:{HW(String),Signal Type(Enum)}  <br/> (类型: HexStr) |
-| `API: Update Settings v2.0` | Config API | HW:(string);Signal Type:(Sine Wave|Square with Noise)  <br/> (类型: API String) |
+| `API: Update Settings v2.0` | Config API | HW:(string);Signal Type:(Sine Wave\|Square with Noise)  <br/> (类型: API String) |
 | `API: Start` | 开始每200毫秒生成数据。 | N/A |
 | `API: Stop` | Stop data generation. | N/A |
 
