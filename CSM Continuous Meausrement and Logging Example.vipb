@@ -1,4 +1,4 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2023-09-27 14:21:53" Modified_Date="2023-10-29 19:08:44" Creator="liyao" Comments="" ID="d76f12ade2a0d42cfed4870e1039651a">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2023-09-27 14:21:53" Modified_Date="2023-10-31 15:03:00" Creator="liyao" Comments="" ID="f003bafa402b9b15ed08b25f1f703779">
   <Library_General_Settings>
     <Package_File_Name/>
     <Library_Version>0.0.0.1</Library_Version>
@@ -39,13 +39,11 @@ Showcases the example of Continuous Measurement and Logging with CSM, It's much 
 
 KUDOs to &lt;b&gt;Workers SDK by Scarfe Controls&lt;/b&gt;, The Ul and functionality is similar with Workers Continuous Measurement and Logging Example.
 
-More information, please visit: https://github.com/NEVSTOP-LAB/CSM-Continuous-Measurement-and-Logging</Description>
+More information, please visit: https://github.com/NEVSTOP-LAB/CSM-Continuous-Meausrement-and-Logging</Description>
       <Copyright/>
       <Packager>NEVSTOP</Packager>
       <URL>https://github.com/NEVSTOP-LAB/CSM-Continuous-Meausrement-and-Logging</URL>
-      <Release_Notes>[add] open source license
-[add] CSM-API-String-Arugments-Support as dependency to enhance Acquisition module setting API
-[update] change CSM/Massdata Argument Support to latest version</Release_Notes>
+      <Release_Notes>[fix] #8 links in description in lib page of vipm.io </Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
