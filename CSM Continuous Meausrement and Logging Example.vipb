@@ -1,4 +1,4 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2023-09-27 14:21:53" Modified_Date="2023-11-06 22:34:05" Creator="liyao" Comments="" ID="feb2011663d30d3fa9a1f2b0177f89d5">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2023-09-27 14:21:53" Modified_Date="2023-11-06 23:14:43" Creator="liyao" Comments="" ID="c17d71d4b4e98b38311f27f66ee07122">
   <Library_General_Settings>
     <Package_File_Name/>
     <Library_Version>0.0.0.1</Library_Version>
@@ -44,7 +44,8 @@ More information, please visit: https://github.com/NEVSTOP-LAB/CSM-Continuous-Me
       <Copyright/>
       <Packager>NEVSTOP</Packager>
       <URL>https://github.com/NEVSTOP-LAB/CSM-Continuous-Meausrement-and-Logging</URL>
-      <Release_Notes>[fix] #8 links in description in lib page of vipm.io </Release_Notes>
+      <Release_Notes>[add] #9 use CSM-INI-Static-Variable-Support for configuration file
+[fix] #8 links in description in lib page of vipm.io </Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
