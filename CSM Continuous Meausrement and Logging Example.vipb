@@ -1,4 +1,4 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2023-09-27 14:21:53" Modified_Date="2023-10-31 15:03:00" Creator="liyao" Comments="" ID="f003bafa402b9b15ed08b25f1f703779">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2023-09-27 14:21:53" Modified_Date="2023-11-06 22:34:05" Creator="liyao" Comments="" ID="feb2011663d30d3fa9a1f2b0177f89d5">
   <Library_General_Settings>
     <Package_File_Name/>
     <Library_Version>0.0.0.1</Library_Version>
@@ -17,9 +17,10 @@
   </Library_General_Settings>
   <Advanced_Settings>
     <Package_Dependencies>
-      <Additional_External_Dependencies>nevstop_lib_communicable_state_machine &gt;=2023.10.27.161251</Additional_External_Dependencies>
-      <Additional_External_Dependencies>nevstop_lib_csm_api_string_arguments_support &gt;=2023.10.27.222212</Additional_External_Dependencies>
-      <Additional_External_Dependencies>nevstop_lib_csm_massdata_parameter_support &gt;=2023.10.27.231325</Additional_External_Dependencies>
+      <Additional_External_Dependencies>nevstop_lib_communicable_state_machine &gt;=2023.11.6.102716</Additional_External_Dependencies>
+      <Additional_External_Dependencies>nevstop_lib_csm_api_string_arguments_support &gt;=2023.11.1.131808</Additional_External_Dependencies>
+      <Additional_External_Dependencies>nevstop_lib_csm_ini_static_variable_support &gt;=2023.11.6.115804</Additional_External_Dependencies>
+      <Additional_External_Dependencies>nevstop_lib_csm_massdata_parameter_support &gt;=2023.10.29.200707</Additional_External_Dependencies>
       <Package_Conflicts>nevstop_lib_jki_state_machine++ &gt;=2023.9.9.235144</Package_Conflicts>
     </Package_Dependencies>
     <Custom_Action_VIs>
