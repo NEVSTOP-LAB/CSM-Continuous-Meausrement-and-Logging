@@ -25,6 +25,7 @@
 		<Item Name="Reusable Modules" Type="Folder">
 			<Item Name="Acquisition.lvlib" Type="Library" URL="../Acquisition/Acquisition.lvlib"/>
 			<Item Name="Logging.lvlib" Type="Library" URL="../Logging/Logging.lvlib"/>
+			<Item Name="Algorithm.lvlib" Type="Library" URL="../Algorithm/Algorithm.lvlib"/>
 		</Item>
 		<Item Name="UI.lvlib" Type="Library" URL="../UI/UI.lvlib"/>
 		<Item Name="Dependencies" Type="Dependencies">
