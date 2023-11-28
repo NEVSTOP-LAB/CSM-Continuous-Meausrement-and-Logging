@@ -97,12 +97,11 @@ Initialize data and UI. Load configuration from xml file and send config to subm
 ```
 Data: Initialize
 Initialize Core Data
+Data: Load Configuration From Ini
 Events: Register
 UI: Initialize
 UI: Front Panel State >> Open
-// Update Settings to submodules
 Do: Update Settings
-//Update status bar
 DO: Update Status >> Ready...
 ```
 
@@ -115,6 +114,7 @@ Stop submodules and UI module itself then.
 ```
 Macro: Exit -@ Acquisition
 Macro: Exit -@ Logging
+Macro: Exit -@ Algorithm
 UI: Front Panel State >> Close
 Data: Cleanup
 Events: Unregister
@@ -129,8 +129,17 @@ Update UI and trigger submodule to work with start message. Register "Acquired W
 
 
 ```
+//Register Status
+Acquired Waveform@Acquisition >> API: Log@Logging -><register>
+Acquired Waveform@Acquisition >> API: Power Spectrum@Algorithm -><register>
+Acquired Waveform@Acquisition >> UI: Update Waveforms -><register>
+Power Spectrum@Algorithm >> UI: Update FFT -><register>
+
+//Local States
 DO: Update Status >> Acquiring and Logging...
 UI: Update When Start
+
+//Send Message to Other CSM Modules
 API: Start ->| Logging
 API: Start ->| Acquisition
 ```
@@ -143,10 +152,19 @@ API: Start ->| Acquisition
 Update UI and stop submodules. Unregister "Acquired Waveform" status of "Acquisition".
 
 ```
-DO: Update Status >> Stoping...
+//Local States
+DO: Update Status >> Stopping...
 UI: Update When Stop
+
+//Send Message to Other CSM Modules
 API: Stop ->| Logging
 API: Stop ->| Acquisition
+
+//Unregister Status
+Acquired Waveform@Acquisition >> API: Log@Logging -><unregister>
+Acquired Waveform@Acquisition >> API: Power Spectrum@Algorithm -><unregister>
+Acquired Waveform@Acquisition >> UI: Update Waveforms -><unregister>
+Power Spectrum@Algorithm >> UI: Update FFT -><unregister>
 ```
 
 ![Macro: Stop](./_doc/Stop%20Process.png)

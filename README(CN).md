@@ -87,12 +87,11 @@ API: Update Settings v2.0 >> Signal Type:Sine Wave -> Acquisition
 ```
 Data: Initialize
 Initialize Core Data
+Data: Load Configuration From Ini
 Events: Register
 UI: Initialize
 UI: Front Panel State >> Open
-// Update Settings to submodules
 Do: Update Settings
-//Update status bar
 DO: Update Status >> Ready...
 ```
 
@@ -105,6 +104,7 @@ DO: Update Status >> Ready...
 ```
 Macro: Exit -@ Acquisition
 Macro: Exit -@ Logging
+Macro: Exit -@ Algorithm
 UI: Front Panel State >> Close
 Data: Cleanup
 Events: Unregister
@@ -116,8 +116,17 @@ Exits
 更新用户界面(UI)并触发子模块以启动消息进行工作。将 "Acquisition" 模块的 "Acquired Waveform" 状态注册到 "Logging" 模块的 "API: Log" 状态。当 "Acquired Waveform" 状态发生时，"Logging" 模块将自动执行 "API: Log"。
 
 ```
+//Register Status
+Acquired Waveform@Acquisition >> API: Log@Logging -><register>
+Acquired Waveform@Acquisition >> API: Power Spectrum@Algorithm -><register>
+Acquired Waveform@Acquisition >> UI: Update Waveforms -><register>
+Power Spectrum@Algorithm >> UI: Update FFT -><register>
+
+//Local States
 DO: Update Status >> Acquiring and Logging...
 UI: Update When Start
+
+//Send Message to Other CSM Modules
 API: Start ->| Logging
 API: Start ->| Acquisition
 ```
@@ -130,10 +139,19 @@ API: Start ->| Acquisition
 更新用户界面(UI)并停止子模块。取消注册 "Acquisition" 模块的 "Acquired Waveform" 状态。
 
 ```
-DO: Update Status >> Stoping...
+//Local States
+DO: Update Status >> Stopping...
 UI: Update When Stop
+
+//Send Message to Other CSM Modules
 API: Stop ->| Logging
 API: Stop ->| Acquisition
+
+//Unregister Status
+Acquired Waveform@Acquisition >> API: Log@Logging -><unregister>
+Acquired Waveform@Acquisition >> API: Power Spectrum@Algorithm -><unregister>
+Acquired Waveform@Acquisition >> UI: Update Waveforms -><unregister>
+Power Spectrum@Algorithm >> UI: Update FFT -><unregister>
 ```
 
 ![Macro: Stop](./_doc/Stop%20Process.png)
