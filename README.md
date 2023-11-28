@@ -11,10 +11,10 @@ Accomplish application of Continuous Measurement and Logging with CSM. It's much
 
 This Package depends on these other packages:
 
-    Communicable State Machine(CSM) >= 2023.10.27.161251
-    CSM API String Arguments Support >= 2023.10.27.222212
-    CSM MassData Parameter Support >= 2023.10.27.231325
-
+    Communicable State Machine(CSM) >= 2023.11.22.203653
+    CSM API String Arguments Support >= 2023.11.13.91436
+    CSM MassData Parameter Support >= 2023.11.12.235214
+    CSM INI Static Variable Support >= 2023.11.22.164134
 
 ## Reusable Modules
 
