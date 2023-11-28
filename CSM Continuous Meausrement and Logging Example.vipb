@@ -1,4 +1,4 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2023-09-27 14:21:53" Modified_Date="2023-11-12 23:54:04" Creator="liyao" Comments="" ID="d884f987930cca8ed18bcd2f1b8acbf6">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2023-09-27 14:21:53" Modified_Date="2023-11-28 22:51:41" Creator="liyao" Comments="" ID="f74edd4ac5f55e393beb50b146e8d44e">
   <Library_General_Settings>
     <Package_File_Name/>
     <Library_Version>0.0.0.1</Library_Version>
@@ -128,6 +128,12 @@ More information, please visit: https://github.com/NEVSTOP-LAB/CSM-Continuous-Me
       </Destination_Overrides>
       <Destination_Overrides>
         <Path>UI</Path>
+        <Destination>1</Destination>
+        <Additional_Destination>false</Additional_Destination>
+        <Additional_Destination_Index>0</Additional_Destination_Index>
+      </Destination_Overrides>
+      <Destination_Overrides>
+        <Path>Algorithm</Path>
         <Destination>1</Destination>
         <Additional_Destination>false</Additional_Destination>
         <Additional_Destination_Index>0</Additional_Destination_Index>

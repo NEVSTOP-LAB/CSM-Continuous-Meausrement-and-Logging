@@ -46,8 +46,22 @@ API: Stop -> Logging
 API: Start -> Acquisition
 API: Stop -> Acquisition
 //使用[CSM-API-String-Arguments-Support](https://github.com/NEVSTOP-LAB/CSM-API-String-Arguments-Support),通过字符描述'Signal Type'，更新模块配置
-API: Update Settings v2.0 >> Signal Type:Sine Wave -> -> Acquisition
+API: Update Settings v2.0 >> Signal Type:Sine Wave -> Acquisition
 ```
+### `Algorithm Module` : 波形数据的分析模块
+
+| API | 描述 | 参数 |
+| --- | --- | --- |
+| `API: FFT(Peak)` | FFT(peak) 分析方法 | 1D波形数组. <br/> (类型: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
+| `API: FFT(RMS)` | FFT(RMS) 分析方法 | HW:(string);Signal Type:(Sine Wave \| 1D波形数组. <br/> (类型: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
+| `API: Power Spectrum` | Power Spectrum 分析方法 | 1D波形数组. <br/> (类型: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
+
+| Status | 描述 | 参数 |
+| --- | --- | --- |
+| FFT(Peak) | FFT(peak) spectrum Data. | 1D波形数组. <br/> (类型: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
+| FFT(RMS) | FFT(RMS) spectrum Data. | 1D波形数组. <br/> (类型: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
+| Power Spectrum | Power Spectrum Data. | 1D波形数组. <br/> (类型: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
+
 
 ## 连续测量和记录应用程序
 

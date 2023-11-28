@@ -54,12 +54,28 @@ API: Stop -> Logging
 API: Start -> Acquisition
 API: Stop -> Acquisition
 //With [CSM-API-String-Arguments-Support](https://github.com/NEVSTOP-LAB/CSM-API-String-Arguments-Support), update 'Signal Type' with plain text description
-API: Update Settings v2.0 >> Signal Type:Sine Wave -> -> Acquisition
+API: Update Settings v2.0 >> Signal Type:Sine Wave -> Acquisition
 ```
+
+### `Algorithm Module` : Algorithm on waveform data.
+
+| API | Description | Parameter |
+| --- | --- | --- |
+| `API: FFT(Peak)` | Analyze waveform with FFT(peak) method | 1D Waveform array. <br/> (Type: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
+| `API: FFT(RMS)` | Analyze waveform with FFT(RMS) method | HW:(string);Signal Type:(Sine Wave \| 1D Waveform array. <br/> (Type: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
+| `API: Power Spectrum` | Get Power Spectrum of Waveform | 1D Waveform array. <br/> (Type: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
+
+| Status | Description | Parameter |
+| --- | --- | --- |
+| FFT(Peak) | FFT(peak) spectrum Data. | 1D Waveform array. <br/> (Type: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
+| FFT(RMS) | FFT(RMS) spectrum Data. | 1D Waveform array. <br/> (Type: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
+| Power Spectrum | Power Spectrum Data. | 1D Waveform array. <br/> (Type: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
 
 ## Continuous Measurement and Logging Application
 
-`Logging Module` and `Acquisition Module` don't know each other at all. User interface module is needed for Continuous Measurement and Logging application. To make it sample(and easy to compare with workers), UI Module is also acting as the controller of the application.
+`Logging Module` and `Acquisition Module` don't know each other at all.
+User interface module is needed for Continuous Measurement and Logging application.
+To make it sample(and easy to compare with workers), UI Module is also acting as the controller of the application.
 
 When you need to use real hardware for data acquisition, create another JKISM module for your hardware with the same API/Status and replace the `Acquisition Module` in UI module.
 
