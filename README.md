@@ -11,10 +11,10 @@ Accomplish application of Continuous Measurement and Logging with CSM. It's much
 
 This Package depends on these other packages:
 
-    Communicable State Machine(CSM) >= 2023.10.27.161251
-    CSM API String Arguments Support >= 2023.10.27.222212
-    CSM MassData Parameter Support >= 2023.10.27.231325
-
+    Communicable State Machine(CSM) >= 2023.11.22.203653
+    CSM API String Arguments Support >= 2023.11.13.91436
+    CSM MassData Parameter Support >= 2023.11.12.235214
+    CSM INI Static Variable Support >= 2023.11.22.164134
 
 ## Reusable Modules
 
@@ -53,13 +53,29 @@ API: Stop -> Logging
 ```
 API: Start -> Acquisition
 API: Stop -> Acquisition
-//With [CSM-API-String-Arguments-Support](https://github.com/NEVSTOP-LAB/CSM-API-String-Arguments-Support), update 'Signal Type' with plain text description
-API: Update Settings v2.0 >> Signal Type:Sine Wave -> -> Acquisition
+//With CSM-API-String-Arguments-Support, update 'Signal Type' with plain text description
+API: Update Settings v2.0 >> Signal Type:Sine Wave -> Acquisition
 ```
+
+### `Algorithm Module` : Algorithm on waveform data.
+
+| API | Description | Parameter |
+| --- | --- | --- |
+| `API: FFT(Peak)` | Analyze waveform with FFT(peak) method | 1D Waveform array. <br/> (Type: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
+| `API: FFT(RMS)` | Analyze waveform with FFT(RMS) method | HW:(string);Signal Type:(Sine Wave \| 1D Waveform array. <br/> (Type: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
+| `API: Power Spectrum` | Get Power Spectrum of Waveform | 1D Waveform array. <br/> (Type: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
+
+| Status | Description | Parameter |
+| --- | --- | --- |
+| FFT(Peak) | FFT(peak) spectrum Data. | 1D Waveform array. <br/> (Type: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
+| FFT(RMS) | FFT(RMS) spectrum Data. | 1D Waveform array. <br/> (Type: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
+| Power Spectrum | Power Spectrum Data. | 1D Waveform array. <br/> (Type: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
 
 ## Continuous Measurement and Logging Application
 
-`Logging Module` and `Acquisition Module` don't know each other at all. User interface module is needed for Continuous Measurement and Logging application. To make it sample(and easy to compare with workers), UI Module is also acting as the controller of the application.
+`Logging Module` and `Acquisition Module` don't know each other at all.
+User interface module is needed for Continuous Measurement and Logging application.
+To make it sample(and easy to compare with workers), UI Module is also acting as the controller of the application.
 
 When you need to use real hardware for data acquisition, create another JKISM module for your hardware with the same API/Status and replace the `Acquisition Module` in UI module.
 
@@ -81,12 +97,11 @@ Initialize data and UI. Load configuration from xml file and send config to subm
 ```
 Data: Initialize
 Initialize Core Data
+Data: Load Configuration From Ini
 Events: Register
 UI: Initialize
 UI: Front Panel State >> Open
-// Update Settings to submodules
 Do: Update Settings
-//Update status bar
 DO: Update Status >> Ready...
 ```
 
@@ -99,6 +114,7 @@ Stop submodules and UI module itself then.
 ```
 Macro: Exit -@ Acquisition
 Macro: Exit -@ Logging
+Macro: Exit -@ Algorithm
 UI: Front Panel State >> Close
 Data: Cleanup
 Events: Unregister
@@ -113,8 +129,17 @@ Update UI and trigger submodule to work with start message. Register "Acquired W
 
 
 ```
+//Register Status
+Acquired Waveform@Acquisition >> API: Log@Logging -><register>
+Acquired Waveform@Acquisition >> API: Power Spectrum@Algorithm -><register>
+Acquired Waveform@Acquisition >> UI: Update Waveforms -><register>
+Power Spectrum@Algorithm >> UI: Update FFT -><register>
+
+//Local States
 DO: Update Status >> Acquiring and Logging...
 UI: Update When Start
+
+//Send Message to Other CSM Modules
 API: Start ->| Logging
 API: Start ->| Acquisition
 ```
@@ -127,10 +152,19 @@ API: Start ->| Acquisition
 Update UI and stop submodules. Unregister "Acquired Waveform" status of "Acquisition".
 
 ```
-DO: Update Status >> Stoping...
+//Local States
+DO: Update Status >> Stopping...
 UI: Update When Stop
+
+//Send Message to Other CSM Modules
 API: Stop ->| Logging
 API: Stop ->| Acquisition
+
+//Unregister Status
+Acquired Waveform@Acquisition >> API: Log@Logging -><unregister>
+Acquired Waveform@Acquisition >> API: Power Spectrum@Algorithm -><unregister>
+Acquired Waveform@Acquisition >> UI: Update Waveforms -><unregister>
+Power Spectrum@Algorithm >> UI: Update FFT -><unregister>
 ```
 
 ![Macro: Stop](./_doc/Stop%20Process.png)

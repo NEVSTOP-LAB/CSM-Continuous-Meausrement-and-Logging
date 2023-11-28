@@ -4,9 +4,10 @@
 
 ### 依赖
 
-    Communicable State Machine(CSM) >= 2023.10.27.161251
-    CSM API String Arguments Support >= 2023.10.27.222212
-    CSM MassData Parameter Support >= 2023.10.27.231325
+    Communicable State Machine(CSM) >= 2023.11.22.203653
+    CSM API String Arguments Support >= 2023.11.13.91436
+    CSM MassData Parameter Support >= 2023.11.12.235214
+    CSM INI Static Variable Support >= 2023.11.22.164134
 
 ## 可复用的底层模块
 
@@ -45,9 +46,23 @@ API: Stop -> Logging
 ```
 API: Start -> Acquisition
 API: Stop -> Acquisition
-//使用[CSM-API-String-Arguments-Support](https://github.com/NEVSTOP-LAB/CSM-API-String-Arguments-Support),通过字符描述'Signal Type'，更新模块配置
-API: Update Settings v2.0 >> Signal Type:Sine Wave -> -> Acquisition
+//使用CSM-API-String-Arguments-Support,通过字符描述'Signal Type'，更新模块配置
+API: Update Settings v2.0 >> Signal Type:Sine Wave -> Acquisition
 ```
+### `Algorithm Module` : 波形数据的分析模块
+
+| API | 描述 | 参数 |
+| --- | --- | --- |
+| `API: FFT(Peak)` | FFT(peak) 分析方法 | 1D波形数组. <br/> (类型: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
+| `API: FFT(RMS)` | FFT(RMS) 分析方法 | HW:(string);Signal Type:(Sine Wave \| 1D波形数组. <br/> (类型: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
+| `API: Power Spectrum` | Power Spectrum 分析方法 | 1D波形数组. <br/> (类型: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
+
+| Status | 描述 | 参数 |
+| --- | --- | --- |
+| FFT(Peak) | FFT(peak) spectrum Data. | 1D波形数组. <br/> (类型: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
+| FFT(RMS) | FFT(RMS) spectrum Data. | 1D波形数组. <br/> (类型: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
+| Power Spectrum | Power Spectrum Data. | 1D波形数组. <br/> (类型: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
+
 
 ## 连续测量和记录应用程序
 
@@ -73,12 +88,11 @@ API: Update Settings v2.0 >> Signal Type:Sine Wave -> -> Acquisition
 ```
 Data: Initialize
 Initialize Core Data
+Data: Load Configuration From Ini
 Events: Register
 UI: Initialize
 UI: Front Panel State >> Open
-// Update Settings to submodules
 Do: Update Settings
-//Update status bar
 DO: Update Status >> Ready...
 ```
 
@@ -91,6 +105,7 @@ DO: Update Status >> Ready...
 ```
 Macro: Exit -@ Acquisition
 Macro: Exit -@ Logging
+Macro: Exit -@ Algorithm
 UI: Front Panel State >> Close
 Data: Cleanup
 Events: Unregister
@@ -102,8 +117,17 @@ Exits
 更新用户界面(UI)并触发子模块以启动消息进行工作。将 "Acquisition" 模块的 "Acquired Waveform" 状态注册到 "Logging" 模块的 "API: Log" 状态。当 "Acquired Waveform" 状态发生时，"Logging" 模块将自动执行 "API: Log"。
 
 ```
+//Register Status
+Acquired Waveform@Acquisition >> API: Log@Logging -><register>
+Acquired Waveform@Acquisition >> API: Power Spectrum@Algorithm -><register>
+Acquired Waveform@Acquisition >> UI: Update Waveforms -><register>
+Power Spectrum@Algorithm >> UI: Update FFT -><register>
+
+//Local States
 DO: Update Status >> Acquiring and Logging...
 UI: Update When Start
+
+//Send Message to Other CSM Modules
 API: Start ->| Logging
 API: Start ->| Acquisition
 ```
@@ -116,10 +140,19 @@ API: Start ->| Acquisition
 更新用户界面(UI)并停止子模块。取消注册 "Acquisition" 模块的 "Acquired Waveform" 状态。
 
 ```
-DO: Update Status >> Stoping...
+//Local States
+DO: Update Status >> Stopping...
 UI: Update When Stop
+
+//Send Message to Other CSM Modules
 API: Stop ->| Logging
 API: Stop ->| Acquisition
+
+//Unregister Status
+Acquired Waveform@Acquisition >> API: Log@Logging -><unregister>
+Acquired Waveform@Acquisition >> API: Power Spectrum@Algorithm -><unregister>
+Acquired Waveform@Acquisition >> UI: Update Waveforms -><unregister>
+Power Spectrum@Algorithm >> UI: Update FFT -><unregister>
 ```
 
 ![Macro: Stop](./_doc/Stop%20Process.png)
