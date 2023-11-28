@@ -4,9 +4,10 @@
 
 ### 依赖
 
-    Communicable State Machine(CSM) >= 2023.10.27.161251
-    CSM API String Arguments Support >= 2023.10.27.222212
-    CSM MassData Parameter Support >= 2023.10.27.231325
+    Communicable State Machine(CSM) >= 2023.11.22.203653
+    CSM API String Arguments Support >= 2023.11.13.91436
+    CSM MassData Parameter Support >= 2023.11.12.235214
+    CSM INI Static Variable Support >= 2023.11.22.164134
 
 ## 可复用的底层模块
 
@@ -45,7 +46,7 @@ API: Stop -> Logging
 ```
 API: Start -> Acquisition
 API: Stop -> Acquisition
-//使用[CSM-API-String-Arguments-Support](https://github.com/NEVSTOP-LAB/CSM-API-String-Arguments-Support),通过字符描述'Signal Type'，更新模块配置
+//使用CSM-API-String-Arguments-Support,通过字符描述'Signal Type'，更新模块配置
 API: Update Settings v2.0 >> Signal Type:Sine Wave -> Acquisition
 ```
 ### `Algorithm Module` : 波形数据的分析模块
