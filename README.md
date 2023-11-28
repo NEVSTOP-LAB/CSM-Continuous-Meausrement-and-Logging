@@ -53,7 +53,7 @@ API: Stop -> Logging
 ```
 API: Start -> Acquisition
 API: Stop -> Acquisition
-//With [CSM-API-String-Arguments-Support](https://github.com/NEVSTOP-LAB/CSM-API-String-Arguments-Support), update 'Signal Type' with plain text description
+//With CSM-API-String-Arguments-Support, update 'Signal Type' with plain text description
 API: Update Settings v2.0 >> Signal Type:Sine Wave -> Acquisition
 ```
 
