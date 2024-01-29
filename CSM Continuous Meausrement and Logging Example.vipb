@@ -1,4 +1,4 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2023-09-27 14:21:53" Modified_Date="2023-12-25 13:02:15" Creator="liyao" Comments="" ID="657de81fabd181e718eb7eeb82e10034">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2023-09-27 14:21:53" Modified_Date="2024-01-29 10:34:21" Creator="liyao" Comments="" ID="b727b1955431cd1b2c6be6b790bddcf3">
   <Library_General_Settings>
     <Package_File_Name/>
     <Library_Version>0.0.0.1</Library_Version>
@@ -17,9 +17,9 @@
   </Library_General_Settings>
   <Advanced_Settings>
     <Package_Dependencies>
-      <Additional_External_Dependencies>nevstop_lib_communicable_state_machine &gt;=2023.12.25.111604</Additional_External_Dependencies>
-      <Additional_External_Dependencies>nevstop_lib_csm_api_string_arguments_support &gt;=2023.12.25.113406</Additional_External_Dependencies>
-      <Additional_External_Dependencies>nevstop_lib_csm_ini_static_variable_support &gt;=2023.12.25.114331</Additional_External_Dependencies>
+      <Additional_External_Dependencies>nevstop_lib_communicable_state_machine &gt;=2024.1.28.193350</Additional_External_Dependencies>
+      <Additional_External_Dependencies>nevstop_lib_csm_api_string_arguments_support &gt;=2024.1.11.120649</Additional_External_Dependencies>
+      <Additional_External_Dependencies>nevstop_lib_csm_ini_static_variable_support &gt;=2024.1.26.131708</Additional_External_Dependencies>
       <Additional_External_Dependencies>nevstop_lib_csm_massdata_parameter_support &gt;=2023.12.25.112601</Additional_External_Dependencies>
       <Package_Conflicts>nevstop_lib_jki_state_machine++ &gt;=2023.9.9.235144</Package_Conflicts>
     </Package_Dependencies>
@@ -44,9 +44,8 @@ More information, please visit: https://github.com/NEVSTOP-LAB/CSM-Continuous-Me
       <Copyright/>
       <Packager>NEVSTOP</Packager>
       <URL>https://github.com/NEVSTOP-LAB/CSM-Continuous-Meausrement-and-Logging</URL>
-      <Release_Notes>[update] update csm to latest version with more bug-fix in it.
-[add] #11 Algorithm module is used in worker mode(#).
-[improvement] update csm module icons</Release_Notes>
+      <Release_Notes>[improve] use CSM helper VIs to simplify code
+[update] update dependencies version</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
