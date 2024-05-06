@@ -79,7 +79,6 @@ To make it sample(and easy to compare with workers), UI Module is also acting as
 
 When you need to use real hardware for data acquisition, create another JKISM module for your hardware with the same API/Status and replace the `Acquisition Module` in UI module.
 
-
 ### UI Module
 
 Create UI, which is similar as [Workers Continuous Measurement and Logging Example](https://www.vipm.io/package/sc_workers_framework_core/)
@@ -89,6 +88,18 @@ Create UI, which is similar as [Workers Continuous Measurement and Logging Examp
 Create Block Diagram with CSM Template. Drop `Logging Module` and `Acquisition Module` as submodules.
 
 ![mainBD](./_doc/MainBD.png)
+
+``` mermaid
+stateDiagram-v2
+direction LR
+Acquisition --> Algorithm : "Acquired Waveform >> Power Spectrum"
+Acquisition --> Algorithm : Acquired Waveform >> FFT(RMS)
+Acquisition --> Logging  : "Acquired Waveform >> API：Log"
+Acquisition --> UI : "Acquired Waveform >> UI：Update Waveform"
+Algorithm --> UI : "FFT(RMS) >> UI：Update FFT"
+Algorithm --> UI : "Power Spectrum >> UI：Update Power Spectrum"
+```
+
 
 #### Start-Up Process (Macro: Initialize)
 
