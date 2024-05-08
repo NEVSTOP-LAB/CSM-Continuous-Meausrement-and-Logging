@@ -1,4 +1,4 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2023-09-27 14:21:53" Modified_Date="2024-05-06 14:19:10" Creator="liyao" Comments="" ID="d67944e9bbdfe9c75b9ffc995a3db4e5">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2023-09-27 14:21:53" Modified_Date="2024-05-08 22:07:26" Creator="liyao" Comments="" ID="8225115d0b73a81364250fcaddb33220">
   <Library_General_Settings>
     <Package_File_Name/>
     <Library_Version>2024.5.0.1</Library_Version>
@@ -44,8 +44,10 @@ More information, please visit: https://github.com/NEVSTOP-LAB/CSM-Continuous-Me
       <Copyright/>
       <Packager>NEVSTOP</Packager>
       <URL>https://github.com/NEVSTOP-LAB/CSM-Continuous-Meausrement-and-Logging</URL>
-      <Release_Notes>[update] update icons of CSM modules
-[update] update dependencies version</Release_Notes>
+      <Release_Notes>[update] frequency of waveform generated is changing around 10Hz
+[update] update icons of CSM modules
+[update] update dependencies version
+[update] UI Module: show Frequency Status.</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
