@@ -7,8 +7,9 @@
 
 Accomplish application of Continuous Measurement and Logging with CSM. It's much more simple, intuitive and graceful.
 
-> [!NOTE] Dependency:
+> [!NOTE]
 >
+> Dependency:
 > - Communicable State Machine(CSM) >= 2023.11.22.203653
 > - CSM API String Arguments Support >= 2023.11.13.91436
 > - CSM MassData Parameter Support >= 2023.11.12.235214

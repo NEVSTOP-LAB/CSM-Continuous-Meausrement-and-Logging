@@ -7,8 +7,9 @@
 
 基于 CSM 框架更简单、更直观，更优雅的实现连续测量和记录应用的示例。
 
-> [!NOTE] 依赖:
+> [!NOTE]
 >
+> 依赖:
 > - Communicable State Machine(CSM) >= 2023.11.22.203653
 > - CSM API String Arguments Support >= 2023.11.13.91436
 > - CSM MassData Parameter Support >= 2023.11.12.235214
