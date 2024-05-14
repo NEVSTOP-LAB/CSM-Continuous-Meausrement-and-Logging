@@ -10,10 +10,10 @@ Accomplish application of Continuous Measurement and Logging with CSM. It's much
 > [!NOTE]
 >
 > Dependency:
-> - Communicable State Machine(CSM) >= 2023.11.22.203653
-> - CSM API String Arguments Support >= 2023.11.13.91436
-> - CSM MassData Parameter Support >= 2023.11.12.235214
-> - CSM INI Static Variable Support >= 2023.11.22.164134
+> - Communicable State Machine(CSM) >= 2024.5.6.140418
+> - CSM API String Arguments Support >= 2024.4.30.131752
+> - CSM INI Static Variable Support >= 2024.4.30.133132
+> - CSM MassData Parameter Support >= 2024.4.30.130940
 >
 
 ## Reusable Modules
