@@ -7,18 +7,18 @@
 
 Accomplish application of Continuous Measurement and Logging with CSM. It's much more simple, intuitive and graceful.
 
-### Dependency
-
-This Package depends on these other packages:
-
-    Communicable State Machine(CSM) >= 2023.11.22.203653
-    CSM API String Arguments Support >= 2023.11.13.91436
-    CSM MassData Parameter Support >= 2023.11.12.235214
-    CSM INI Static Variable Support >= 2023.11.22.164134
+> [!NOTE]
+>
+> Dependency:
+> - Communicable State Machine(CSM) >= 2024.5.6.140418
+> - CSM API String Arguments Support >= 2024.4.30.131752
+> - CSM INI Static Variable Support >= 2024.4.30.133132
+> - CSM MassData Parameter Support >= 2024.4.30.130940
+>
 
 ## Reusable Modules
 
-### `Logging Module` : Logging 1D Waveform Data to tdms file.
+### `Logging Module` : Logging 1D Waveform Data to tdms file
 
 | API | Description | Parameter |
 | --- | --- | --- |
@@ -28,14 +28,15 @@ This Package depends on these other packages:
 | `API: Stop` | Stop logging. | N/A |
 
 **Example: (Suppose module name is "Logging")**
-```
+
+``` text
 API: Update Settings >> c:\_data -> Logging
 API: Log >> MassData-Start:89012,Size:1156 -> Logging
 API: Start -> Logging
 API: Stop -> Logging
 ```
 
-### `Acquisition Module` : Generate Sine/Square Simulated signal data.
+### `Acquisition Module` : Generate Sine/Square Simulated signal data
 
 | API | Description | Parameter |
 | --- | --- | --- |
@@ -44,20 +45,20 @@ API: Stop -> Logging
 | `API: Start` | Start data generation every 200ms. | N/A |
 | `API: Stop` | Stop data generation. | N/A |
 
-
 | Status | Description | Parameter |
 | --- | --- | --- |
 | Acquired Waveform | Simulated Data.  | 1D Waveform array. <br/> (Type: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
 
 **Example: (Suppose module name is "Acquisition")**
-```
+
+``` text
 API: Start -> Acquisition
 API: Stop -> Acquisition
 //With CSM-API-String-Arguments-Support, update 'Signal Type' with plain text description
 API: Update Settings v2.0 >> Signal Type:Sine Wave -> Acquisition
 ```
 
-### `Algorithm Module` : Algorithm on waveform data.
+### `Algorithm Module` : Algorithm on waveform data
 
 | API | Description | Parameter |
 | --- | --- | --- |
@@ -79,7 +80,6 @@ To make it sample(and easy to compare with workers), UI Module is also acting as
 
 When you need to use real hardware for data acquisition, create another JKISM module for your hardware with the same API/Status and replace the `Acquisition Module` in UI module.
 
-
 ### UI Module
 
 Create UI, which is similar as [Workers Continuous Measurement and Logging Example](https://www.vipm.io/package/sc_workers_framework_core/)
@@ -90,20 +90,20 @@ Create Block Diagram with CSM Template. Drop `Logging Module` and `Acquisition M
 
 ![mainBD](./_doc/MainBD.png)
 
+``` mermaid
+stateDiagram-v2
+direction LR
+Acquisition --> Algorithm : "Acquired Waveform >> Power Spectrum"
+Acquisition --> Algorithm : Acquired Waveform >> FFT(RMS)
+Acquisition --> Logging  : "Acquired Waveform >> API：Log"
+Acquisition --> UI : "Acquired Waveform >> UI：Update Waveform"
+Algorithm --> UI : "FFT(RMS) >> UI：Update FFT"
+Algorithm --> UI : "Power Spectrum >> UI：Update Power Spectrum"
+```
+
 #### Start-Up Process (Macro: Initialize)
 
 Initialize data and UI. Load configuration from xml file and send config to submodules. Register "Acquired Waveform" status of "Acquisition" to "UI: Update Waveforms" state of "UI". When "Acquired Waveform" status occurs, "UI" will go to "UI: Update Waveforms" automatically.
-
-```
-Data: Initialize
-Initialize Core Data
-Data: Load Configuration From Ini
-Events: Register
-UI: Initialize
-UI: Front Panel State >> Open
-Do: Update Settings
-DO: Update Status >> Ready...
-```
 
 ![Macro: Initialize](./_doc/Initialize%20Process.png)
 
@@ -111,60 +111,16 @@ DO: Update Status >> Ready...
 
 Stop submodules and UI module itself then.
 
-```
-Macro: Exit -@ Acquisition
-Macro: Exit -@ Logging
-Macro: Exit -@ Algorithm
-UI: Front Panel State >> Close
-Data: Cleanup
-Events: Unregister
-Exits
-```
-
 ![Macro: Initialize](./_doc/Exit%20Process.png)
 
 #### Start Process (Macro: Start)
 
 Update UI and trigger submodule to work with start message. Register "Acquired Waveform" status of "Acquisition" to "API: Log" state of "Logging". When "Acquired Waveform" status occurs, "logging" will go to "API: Log" automatically.
 
-
-```
-//Register Status
-Acquired Waveform@Acquisition >> API: Log@Logging -><register>
-Acquired Waveform@Acquisition >> API: Power Spectrum@Algorithm -><register>
-Acquired Waveform@Acquisition >> UI: Update Waveforms -><register>
-Power Spectrum@Algorithm >> UI: Update FFT -><register>
-
-//Local States
-DO: Update Status >> Acquiring and Logging...
-UI: Update When Start
-
-//Send Message to Other CSM Modules
-API: Start ->| Logging
-API: Start ->| Acquisition
-```
-
 ![Macro: Start](./_doc/Start%20Process.png)
-
 
 #### Stop Process (Macro: Stop)
 
 Update UI and stop submodules. Unregister "Acquired Waveform" status of "Acquisition".
-
-```
-//Local States
-DO: Update Status >> Stopping...
-UI: Update When Stop
-
-//Send Message to Other CSM Modules
-API: Stop ->| Logging
-API: Stop ->| Acquisition
-
-//Unregister Status
-Acquired Waveform@Acquisition >> API: Log@Logging -><unregister>
-Acquired Waveform@Acquisition >> API: Power Spectrum@Algorithm -><unregister>
-Acquired Waveform@Acquisition >> UI: Update Waveforms -><unregister>
-Power Spectrum@Algorithm >> UI: Update FFT -><unregister>
-```
 
 ![Macro: Stop](./_doc/Stop%20Process.png)
