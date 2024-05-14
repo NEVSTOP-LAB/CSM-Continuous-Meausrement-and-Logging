@@ -1,17 +1,23 @@
 # CSM Continuous Measurement and Logging
 
+[![Image](https://www.vipm.io/package/nevstop_lib_csm_continuous_meausrement_and_logging_example/badge.svg?metric=installs)](https://www.vipm.io/package/nevstop_lib_csm_continuous_meausrement_and_logging_example/)
+[![Image](https://www.vipm.io/package/nevstop_lib_csm_continuous_meausrement_and_logging_example/badge.svg?metric=stars)](https://www.vipm.io/package/nevstop_lib_csm_continuous_meausrement_and_logging_example/)
+[![GitHub all releases](https://img.shields.io/github/downloads/NEVSTOP-LAB/CSM-Continuous-Meausrement-and-Logging/total)](https://github.com/NEVSTOP-LAB/CSM-Continuous-Meausrement-and-Logging/releases)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
 基于 CSM 框架更简单、更直观，更优雅的实现连续测量和记录应用的示例。
 
-### 依赖
-
-    Communicable State Machine(CSM) >= 2023.11.22.203653
-    CSM API String Arguments Support >= 2023.11.13.91436
-    CSM MassData Parameter Support >= 2023.11.12.235214
-    CSM INI Static Variable Support >= 2023.11.22.164134
+> [!NOTE] 依赖:
+>
+> - Communicable State Machine(CSM) >= 2023.11.22.203653
+> - CSM API String Arguments Support >= 2023.11.13.91436
+> - CSM MassData Parameter Support >= 2023.11.12.235214
+> - CSM INI Static Variable Support >= 2023.11.22.164134
+>
 
 ## 可复用的底层模块
 
-### `Logging Module` : 将1D波形数据记录到TDMS文件中。
+### `Logging Module` : 将1D波形数据记录到TDMS文件中
 
 | API | 描述 | 参数 |
 | --- | --- | --- |
@@ -21,14 +27,15 @@
 | `API: Stop` | 停止记录。 | N/A |
 
 **示例：（假设模块名称为“Logging”）**
-```
+
+``` text
 API: Update Settings >> c:\_data -> Logging
 API: Log >> MassData-Start:89012,Size:1156 -> Logging
 API: Start -> Logging
 API: Stop -> Logging
 ```
 
-### `Acquisition Module` : 生成正弦/方波模拟信号数据。
+### `Acquisition Module` : 生成正弦/方波模拟信号数据
 
 | API | 描述 | 参数 |
 | --- | --- | --- |
@@ -37,18 +44,19 @@ API: Stop -> Logging
 | `API: Start` | 开始每200毫秒生成数据。 | N/A |
 | `API: Stop` | Stop data generation. | N/A |
 
-
 | Status | 描述 | 参数 |
 | --- | --- | --- |
 | Acquired Waveform | 模拟生成的数据  | 1D波形数组. <br/> (类型: [MassData参数](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
 
 **示例：（假设模块名称为“Acquisition”）**
-```
+
+``` text
 API: Start -> Acquisition
 API: Stop -> Acquisition
 //使用CSM-API-String-Arguments-Support,通过字符描述'Signal Type'，更新模块配置
 API: Update Settings v2.0 >> Signal Type:Sine Wave -> Acquisition
 ```
+
 ### `Algorithm Module` : 波形数据的分析模块
 
 | API | 描述 | 参数 |
@@ -96,7 +104,6 @@ API: Update Settings v2.0 >> Signal Type:Sine Wave -> Acquisition
 更新用户界面(UI)并触发子模块以启动消息进行工作。将 "Acquisition" 模块的 "Acquired Waveform" 状态注册到 "Logging" 模块的 "API: Log" 状态。当 "Acquired Waveform" 状态发生时，"Logging" 模块将自动执行 "API: Log"。
 
 ![Macro: Start](./_doc/Start%20Process.png)
-
 
 #### 停止采集过程 (Macro: Stop)
 

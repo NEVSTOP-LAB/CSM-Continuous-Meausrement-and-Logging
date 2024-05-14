@@ -7,18 +7,17 @@
 
 Accomplish application of Continuous Measurement and Logging with CSM. It's much more simple, intuitive and graceful.
 
-### Dependency
-
-This Package depends on these other packages:
-
-    Communicable State Machine(CSM) >= 2023.11.22.203653
-    CSM API String Arguments Support >= 2023.11.13.91436
-    CSM MassData Parameter Support >= 2023.11.12.235214
-    CSM INI Static Variable Support >= 2023.11.22.164134
+> [!NOTE] Dependency:
+>
+> - Communicable State Machine(CSM) >= 2023.11.22.203653
+> - CSM API String Arguments Support >= 2023.11.13.91436
+> - CSM MassData Parameter Support >= 2023.11.12.235214
+> - CSM INI Static Variable Support >= 2023.11.22.164134
+>
 
 ## Reusable Modules
 
-### `Logging Module` : Logging 1D Waveform Data to tdms file.
+### `Logging Module` : Logging 1D Waveform Data to tdms file
 
 | API | Description | Parameter |
 | --- | --- | --- |
@@ -28,14 +27,15 @@ This Package depends on these other packages:
 | `API: Stop` | Stop logging. | N/A |
 
 **Example: (Suppose module name is "Logging")**
-```
+
+``` text
 API: Update Settings >> c:\_data -> Logging
 API: Log >> MassData-Start:89012,Size:1156 -> Logging
 API: Start -> Logging
 API: Stop -> Logging
 ```
 
-### `Acquisition Module` : Generate Sine/Square Simulated signal data.
+### `Acquisition Module` : Generate Sine/Square Simulated signal data
 
 | API | Description | Parameter |
 | --- | --- | --- |
@@ -44,20 +44,20 @@ API: Stop -> Logging
 | `API: Start` | Start data generation every 200ms. | N/A |
 | `API: Stop` | Stop data generation. | N/A |
 
-
 | Status | Description | Parameter |
 | --- | --- | --- |
 | Acquired Waveform | Simulated Data.  | 1D Waveform array. <br/> (Type: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
 
 **Example: (Suppose module name is "Acquisition")**
-```
+
+``` text
 API: Start -> Acquisition
 API: Stop -> Acquisition
 //With CSM-API-String-Arguments-Support, update 'Signal Type' with plain text description
 API: Update Settings v2.0 >> Signal Type:Sine Wave -> Acquisition
 ```
 
-### `Algorithm Module` : Algorithm on waveform data.
+### `Algorithm Module` : Algorithm on waveform data
 
 | API | Description | Parameter |
 | --- | --- | --- |
@@ -100,7 +100,6 @@ Algorithm --> UI : "FFT(RMS) >> UI：Update FFT"
 Algorithm --> UI : "Power Spectrum >> UI：Update Power Spectrum"
 ```
 
-
 #### Start-Up Process (Macro: Initialize)
 
 Initialize data and UI. Load configuration from xml file and send config to submodules. Register "Acquired Waveform" status of "Acquisition" to "UI: Update Waveforms" state of "UI". When "Acquired Waveform" status occurs, "UI" will go to "UI: Update Waveforms" automatically.
@@ -118,7 +117,6 @@ Stop submodules and UI module itself then.
 Update UI and trigger submodule to work with start message. Register "Acquired Waveform" status of "Acquisition" to "API: Log" state of "Logging". When "Acquired Waveform" status occurs, "logging" will go to "API: Log" automatically.
 
 ![Macro: Start](./_doc/Start%20Process.png)
-
 
 #### Stop Process (Macro: Stop)
 
