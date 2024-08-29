@@ -7,15 +7,6 @@
 
 基于 CSM 框架更简单、更直观，更优雅的实现连续测量和记录应用的示例。
 
-> [!NOTE]
->
-> 依赖:
-> - Communicable State Machine(CSM) >= 2024.5.6.140418
-> - CSM API String Arguments Support >= 2024.4.30.131752
-> - CSM INI Static Variable Support >= 2024.4.30.133132
-> - CSM MassData Parameter Support >= 2024.4.30.130940
->
-
 ## 可复用的底层模块
 
 ### `Logging Module` : 将1D波形数据记录到TDMS文件中
@@ -76,7 +67,7 @@ API: Update Settings v2.0 >> Signal Type:Sine Wave -> Acquisition
 
 可以看出，"Logging Module" 和 "Acquisition Module" 设计完成时，完全不知道彼此的存在。为了创建连续测量和记录应用程序，除了需要一个用户界面模块。还需要调度这两个底层模块协同工作。为了简单，用户界面模块也作为 Controller，承担调度工作。
 
-当需要使用真实硬件进行数据采集时，可以创建另一个 JKISM 模块，该模块具有相同的 API 和状态，然后将其替换掉 UI 模块中的 Acquisition Module。这将允许轻松地切换并集成不同的硬件模块，而不必更改 UI 模块的其余部分，因为它们遵循相同的 API 和状态接口。
+当需要使用真实硬件进行数据采集时，可以创建另一个 CSM 模块，该模块具有相同的 API 和状态，然后将其替换掉 UI 模块中的 Acquisition Module。这将允许轻松地切换并集成不同的硬件模块，而不必更改 UI 模块的其余部分，因为它们遵循相同的 API 和状态接口。
 
 ### 用户界面模块
 
