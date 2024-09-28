@@ -155,8 +155,9 @@
 				<Item Name="API String Arguments Support.lvlib" Type="Library" URL="/&lt;userlib&gt;/_NEVSTOP/Communicable State Machine(CSM)/addons/API-String-Arugments-Support/API String Arguments Support.lvlib"/>
 				<Item Name="INI-Static-Variable-Support.lvlib" Type="Library" URL="/&lt;userlib&gt;/_NEVSTOP/Communicable State Machine(CSM)/addons/INI-Static-Variable-Support/INI-Static-Variable-Support.lvlib"/>
 				<Item Name="LabVIEW-Config.lvlib" Type="Library" URL="/&lt;userlib&gt;/_NEVSTOP/Communicable State Machine(CSM)/addons/INI-Static-Variable-Support/LabVIEW-Config/LabVIEW-Config.lvlib"/>
-				<Item Name="CSM MassData Parameter Support.lvlib" Type="Library" URL="/&lt;userlib&gt;/_NEVSTOP/Communicable State Machine(CSM)/addons/MassData-Parameter/CSM MassData Parameter Support.lvlib"/>
 				<Item Name="CSM File Logger.lvlib" Type="Library" URL="/&lt;userlib&gt;/_NEVSTOP/Communicable State Machine(CSM)/addons/Logger/CSM File Logger.lvlib"/>
+				<Item Name="CSM Watchdog.lvlib" Type="Library" URL="/&lt;userlib&gt;/_NEVSTOP/Communicable State Machine(CSM)/addons/Watchdog/CSM Watchdog.lvlib"/>
+				<Item Name="CSM MassData Parameter Support.lvlib" Type="Library" URL="/&lt;userlib&gt;/_NEVSTOP/Communicable State Machine(CSM)/addons/MassData-Parameter/CSM MassData Parameter Support.lvlib"/>
 			</Item>
 			<Item Name="lvanlys.dll" Type="Document" URL="/&lt;resource&gt;/lvanlys.dll"/>
 		</Item>
