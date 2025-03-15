@@ -1,4 +1,4 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2023-09-27 14:21:53" Modified_Date="2025-03-15 21:27:55" Creator="liyao" Comments="" ID="31de645b65eb0a41ffb7b657994a2b00">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2023-09-27 14:21:53" Modified_Date="2025-03-15 21:28:49" Creator="liyao" Comments="" ID="68a51d537c0bb6e2acbd47bc4f80ae52">
   <Library_General_Settings>
     <Package_File_Name/>
     <Library_Version>2025.3.0.1</Library_Version>
@@ -44,7 +44,7 @@ More information, please visit: https://github.com/NEVSTOP-LAB/CSM-Continuous-Me
       <Copyright/>
       <Packager>NEVSTOP</Packager>
       <URL>https://github.com/NEVSTOP-LAB/CSM-Continuous-Meausrement-and-Logging</URL>
-      <Release_Notes>[update] #9 Prompt user to use CSM tools for debugging.</Release_Notes>
+      <Release_Notes>[update] #19 Prompt user to use CSM tools for debugging.</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
