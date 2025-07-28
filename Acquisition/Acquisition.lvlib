@@ -6,7 +6,6 @@
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Item Name="SubVI" Type="Folder">
 		<Item Name="Acquisition State.ctl" Type="VI" URL="../_support/Acquisition State.ctl"/>
-		<Item Name="Channel Configuration.ctl" Type="VI" URL="../_support/Channel Configuration.ctl"/>
 		<Item Name="Configure Hardware.vi" Type="VI" URL="../_support/Configure Hardware.vi"/>
 		<Item Name="Generate Simulated Data.vi" Type="VI" URL="../_support/Generate Simulated Data.vi"/>
 		<Item Name="Hardware Configuration.ctl" Type="VI" URL="../_support/Hardware Configuration.ctl"/>
