@@ -25,9 +25,17 @@ Item 19 = "Macro: Initialize"
 Item 20 = "Macro: Exit"
 Item 21 = "API: Start"
 Item 22 = "API: Stop"
-Item 23 = "API: Acquire"
-Item 24 = "API: Update Settings"
-Item 25 = "API: Update Settings v2.0"
+Item 23 = "API: Update Settings"
+Item 24 = "API: Update Settings v1.0"
+Item 25 = "DAQ: Initialize"
+Item 26 = "DAQ: Configure"
+Item 27 = "DAQ: Start"
+Item 28 = "DAQ: Acquisite"
+Item 29 = "DAQ: Stop"
+Item 30 = "DAQ: Close"
+Item 31 = "Continuous Check"
+Item 32 = "Break Continuous"
+Item 33 = "Do: Front Panel State"
 
 [CSMVI.Algorithm.lvlib:Algorithm.vi]
 Path = "<AppDir>/Algorithm/Algorithm.vi"
@@ -145,5 +153,8 @@ VIName = "Logging.lvlib:Logging.vi"
 VIName = "UI.lvlib:UI(Launcher).vi"
 
 [CSM Debug Console]
-Response Timeout(s) = 30
-History Length = 50
+Response Timeout(s) = 30    
+History Length = 50    
+Periodic Enable = TRUE    
+Periodic threashold(#/s) = 0.500000    
+Periodic Check Peroid(s) = 3.000000    
