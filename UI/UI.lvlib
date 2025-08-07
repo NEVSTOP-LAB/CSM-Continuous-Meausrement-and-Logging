@@ -8,8 +8,6 @@
 		<Property Name="NI.SortType" Type="Int">3</Property>
 		<Item Name="Set Enable State on Multiple Controls.vi" Type="VI" URL="../_support/Set Enable State on Multiple Controls.vi"/>
 		<Item Name="Analysis Window Type.ctl" Type="VI" URL="../_support/Analysis Window Type.ctl"/>
-		<Item Name="Control Refs.ctl" Type="VI" URL="../_support/Control Refs.ctl"/>
-		<Item Name="Settings.ctl" Type="VI" URL="../_support/Settings.ctl"/>
 		<Item Name="UI State.ctl" Type="VI" URL="../_support/UI State.ctl"/>
 	</Item>
 	<Item Name="UI(Launcher).vi" Type="VI" URL="../UI(Launcher).vi"/>
