@@ -37,7 +37,7 @@ API: Stop -> Logging
 | `API: Stop` | Stop data generation. | N/A | N/A |
 
 | Status | 描述 | 参数 |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | Acquired Waveform | 模拟生成的数据  | 1D波形数组. <br/> (类型: MassData) |
 
 模块前面板(front Panel)用于配置参数。
