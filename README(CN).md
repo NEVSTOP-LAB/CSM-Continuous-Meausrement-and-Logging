@@ -13,12 +13,12 @@
 
 ### `Logging Module` : 将1D波形数据记录到TDMS文件中
 
-| API | 描述 | 参数 |
-| --- | --- | --- |
-| `API: Update Settings` | 配置API | 数据文件夹的完整路径 <br/> (类型: 普通字符串)|
-| `API: Start` | 开始记录。在数据文件夹中创建基于时间的文件名的TDMS文件。 | N/A |
+| API | 描述 | 参数 | 响应 |
+| --- | --- | --- | --- | --- |
+| `API: Update Settings` | 配置API | 数据文件夹的完整路径 <br/> (类型: 普通字符串)| N/A |
+| `API: Start` | 开始记录。在数据文件夹中创建基于时间的文件名的TDMS文件。 | N/A | N/A |
 | `API: Log` | 将数据记录到TDMS文件中。 | 1D波形数组。 <br/> (类型: (Type: [MassData参数](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
-| `API: Stop` | 停止记录。 | N/A |
+| `API: Stop` | 停止记录。 | N/A | N/A |
 
 **示例：（假设模块名称为“Logging”）**
 
@@ -28,42 +28,42 @@ API: Log >> MassData-Start:89012,Size:1156 -> Logging
 API: Start -> Logging
 API: Stop -> Logging
 ```
+												   
+### 数据采集模块
 
-### `Acquisition Module` : 生成正弦/方波模拟信号数据
+| API | 描述 | 参数 | 响应 |
+| --- | --- | --- | --- |
+| `API: Start` | 开始每200毫秒生成数据。 | N/A | N/A |
+| `API: Stop` | Stop data generation. | N/A | N/A |
 
-| API | 描述 | 参数 |
-| --- | --- | --- |
-| `API: Update Settings` | 配置API | Cluster:{HW(String),Signal Type(Enum)}  <br/> (类型: HexStr) |
-| `API: Update Settings v2.0` | Config API | HW:(string);Signal Type:(Sine Wave\|Square with Noise)  <br/> (类型: API String) |
-| `API: Start` | 开始每200毫秒生成数据。 | N/A |
-| `API: Stop` | Stop data generation. | N/A |
+| Status | 描述 | 参数 | 响应 |
+| --- | --- | --- | --- |
+| Acquired Waveform | 模拟生成的数据  | 1D波形数组. <br/> (类型: MassData) |
 
-| Status | 描述 | 参数 |
-| --- | --- | --- |
-| Acquired Waveform | 模拟生成的数据  | 1D波形数组. <br/> (类型: [MassData参数](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
+模块前面板(front Panel)用于配置参数。
+
+#### `Acquisition Module` : 生成正弦/方波模拟信号数据
+
+![Alt text](./_doc/Simluated%20DAQ.png)
+
+#### `SoundInput-DAQ` : 采集声卡信号模块
+
+![Alt text](./_doc/Sound_Card%20DAQ.png)
 
 **示例：（假设模块名称为“Acquisition”）**
 
 ``` text
 API: Start -> Acquisition
 API: Stop -> Acquisition
-//使用CSM-API-String-Arguments-Support,通过字符描述'Signal Type'，更新模块配置
-API: Update Settings v2.0 >> Signal Type:Sine Wave -> Acquisition
 ```
 
 ### `Algorithm Module` : 波形数据的分析模块
 
-| API | 描述 | 参数 |
-| --- | --- | --- |
-| `API: FFT(Peak)` | FFT(peak) 分析方法 | 1D波形数组. <br/> (类型: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
-| `API: FFT(RMS)` | FFT(RMS) 分析方法 | HW:(string);Signal Type:(Sine Wave \| 1D波形数组. <br/> (类型: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
-| `API: Power Spectrum` | Power Spectrum 分析方法 | 1D波形数组. <br/> (类型: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
-
-| Status | 描述 | 参数 |
-| --- | --- | --- |
-| FFT(Peak) | FFT(peak) spectrum Data. | 1D波形数组. <br/> (类型: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
-| FFT(RMS) | FFT(RMS) spectrum Data. | 1D波形数组. <br/> (类型: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
-| Power Spectrum | Power Spectrum Data. | 1D波形数组. <br/> (类型: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
+| API | 描述 | 参数 | 响应 |
+| --- | --- | --- | --- |
+| `API: FFT(Peak)` | FFT(peak) 分析方法 | 1D波形数组. <br/> (类型: MassData) | Cluster波形. <br/> (类型: MassData) |
+| `API: FFT(RMS)` | FFT(RMS) 分析方法 | HW:(string);Signal Type:(Sine Wave \| 1D波形数组. <br/> (类型: MassData) | Cluster波形. <br/> (类型: MassData) |
+| `API: Power Spectrum` | Power Spectrum 分析方法 | 1D波形数组. <br/> (类型: MassData) | Cluster波形. <br/> (类型: MassData) |
 
 ## 连续测量和记录应用程序
 
@@ -81,26 +81,13 @@ API: Update Settings v2.0 >> Signal Type:Sine Wave -> Acquisition
 
 ![mainBD](./_doc/MainBD.png)
 
-#### 启动过程 (Macro: Initialize)
-
-初始化数据和用户界面(UI)，从 XML 文件加载配置并将配置发送给子模块。将 'Acquisition' 模块的 'Acquired Waveform' 状态注册到 'UI' 模块的 'UI: Update Waveforms' 状态。当 'Acquired Waveform' 状态发生时，'UI' 将自动切换到 'UI: Update Waveforms' 状态。
-
-![Macro: Initialize](./_doc/Initialize%20Process.png)
-
-#### 退出过程 (Macro: Exit)
-
-停止子模块和用户界面模块本身。
-
-![Macro: Initialize](./_doc/Exit%20Process.png)
-
-#### 开始采集过程 (Macro: Start)
-
-更新用户界面(UI)并触发子模块以启动消息进行工作。将 "Acquisition" 模块的 "Acquired Waveform" 状态注册到 "Logging" 模块的 "API: Log" 状态。当 "Acquired Waveform" 状态发生时，"Logging" 模块将自动执行 "API: Log"。
-
-![Macro: Start](./_doc/Start%20Process.png)
-
-#### 停止采集过程 (Macro: Stop)
-
-更新用户界面(UI)并停止子模块。取消注册 "Acquisition" 模块的 "Acquired Waveform" 状态。
-
-![Macro: Stop](./_doc/Stop%20Process.png)
+``` mermaid
+stateDiagram-v2
+direction LR
+Acquisition --> Algorithm : "Acquired Waveform >> Power Spectrum"
+Acquisition --> Algorithm : Acquired Waveform >> FFT(RMS)
+Acquisition --> Logging  : "Acquired Waveform >> API：Log"
+Acquisition --> UI : "Acquired Waveform >> UI：Update Waveform"
+Algorithm --> UI : "FFT(RMS) >> UI：Update FFT"
+Algorithm --> UI : "Power Spectrum >> UI：Update Power Spectrum"
+```
