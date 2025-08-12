@@ -14,10 +14,10 @@
 ### `Logging Module` : 将1D波形数据记录到TDMS文件中
 
 | API | 描述 | 参数 | 响应 |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | 
 | `API: Update Settings` | 配置API | 数据文件夹的完整路径 <br/> (类型: 普通字符串)| N/A |
 | `API: Start` | 开始记录。在数据文件夹中创建基于时间的文件名的TDMS文件。 | N/A | N/A |
-| `API: Log` | 将数据记录到TDMS文件中。 | 1D波形数组。 <br/> (类型: (Type: [MassData参数](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
+| `API: Log` | 将数据记录到TDMS文件中。 | 1D波形数组。 <br/> (类型: (Type: `massdata`) | N/A |
 | `API: Stop` | 停止记录。 | N/A | N/A |
 
 **示例：（假设模块名称为“Logging”）**
@@ -36,7 +36,7 @@ API: Stop -> Logging
 | `API: Start` | 开始每200毫秒生成数据。 | N/A | N/A |
 | `API: Stop` | Stop data generation. | N/A | N/A |
 
-| Status | 描述 | 参数 | 响应 |
+| Status | 描述 | 参数 |
 | --- | --- | --- | --- |
 | Acquired Waveform | 模拟生成的数据  | 1D波形数组. <br/> (类型: MassData) |
 
@@ -61,9 +61,9 @@ API: Stop -> Acquisition
 
 | API | 描述 | 参数 | 响应 |
 | --- | --- | --- | --- |
-| `API: FFT(Peak)` | FFT(peak) 分析方法 | 1D波形数组. <br/> (类型: MassData) | Cluster波形. <br/> (类型: MassData) |
-| `API: FFT(RMS)` | FFT(RMS) 分析方法 | HW:(string);Signal Type:(Sine Wave \| 1D波形数组. <br/> (类型: MassData) | Cluster波形. <br/> (类型: MassData) |
-| `API: Power Spectrum` | Power Spectrum 分析方法 | 1D波形数组. <br/> (类型: MassData) | Cluster波形. <br/> (类型: MassData) |
+| `API: FFT(Peak)` | FFT(peak) 分析方法 | 1D波形数组. <br/> (类型: MassData) | Cluster波形数组. <br/> (类型: MassData) |
+| `API: FFT(RMS)` | FFT(RMS) 分析方法 | HW:(string);Signal Type:(Sine Wave \| 1D波形数组. <br/> (类型: MassData) | Cluster波形数组. <br/> (类型: MassData) |
+| `API: Power Spectrum` | Power Spectrum 分析方法 | 1D波形数组. <br/> (类型: MassData) | Cluster波形数组. <br/> (类型: MassData) |
 
 ## 连续测量和记录应用程序
 
