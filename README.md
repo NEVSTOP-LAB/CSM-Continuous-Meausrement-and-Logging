@@ -15,10 +15,10 @@ Accomplish application of Continuous Measurement and Logging with CSM. It's much
 
 | API | Description | Arguments | Response |
 | --- | --- | --- | --- |
-| `API: Update Settings` | Config API | Full path of data folder <br/> (Type: `Plain String`) |
-| `API: Start` | Start logging. Create the tdms file in data folder with time-based file name. | N/A |
-| `API: Log` | Log data to tdms file. | 1D Waveform array.  <br/> (Type: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
-| `API: Stop` | Stop logging. | N/A |
+| `API: Update Settings` | Config API | Full path of data folder <br/> (Type: `Plain String`) | N/A |
+| `API: Start` | Start logging. Create the tdms file in data folder with time-based file name. | N/A | N/A |
+| `API: Log` | Log data to tdms file. | 1D Waveform array.  <br/> (Type: `massdata`) | N/A |
+| `API: Stop` | Stop logging. | N/A | N/A |
 
 **Example: (Suppose module name is "Logging")**
 
@@ -33,14 +33,15 @@ API: Stop -> Logging
 	  
 | API | Description | Arguments | Response |
 | --- | --- | --- | --- |
-| `API: Start` | Start data generation every 200ms. | N/A |
-| `API: Stop` | Stop data generation. | N/A |
+| `API: Start` | Start data generation every 200ms. | N/A | N/A |
+| `API: Stop` | Stop data generation. | N/A | N/A |
 
-| Status | Description | Arguments | Response |
-| --- | --- | --- | --- |
+| Status | Description | Arguments |
+| --- | --- | --- | 
 | Acquired Waveform | Simulated Data.  | 1D Waveform array. <br/> (Type: `MassData`) |
 
 Front panel of the module VI is used for configuration.
+
 #### `Acquisition Module` : Generate Sine/Square Simulated signal data
 
 ![Alt text](./_doc/Simluated%20DAQ.png)
@@ -60,9 +61,9 @@ API: Stop -> Acquisition
 
 | API | Description | Arguments | Response |
 | --- | --- | --- | --- |
-| `API: FFT(Peak)` | Analyze waveform with FFT(peak) method | 1D Waveform array. <br/> (Type: `MassData`) |
-| `API: FFT(RMS)` | Analyze waveform with FFT(RMS) method | HW:(string);Signal Type:(Sine Wave \| 1D Waveform array. <br/> (Type: `MassData`) |
-| `API: Power Spectrum` | Get Power Spectrum of Waveform | 1D Waveform array. <br/> (Type: `MassData`) |
+| `API: FFT(Peak)` | Analyze waveform with FFT(peak) method | 1D Waveform array. <br/> (Type: `MassData`) | 1D Cluster(waveform) Array. <br/> (Type: `MassData`) |
+| `API: FFT(RMS)` | Analyze waveform with FFT(RMS) method | HW:(string);Signal Type:(Sine Wave \| 1D Waveform array. <br/> (Type: `MassData`) | 1D Cluster(waveform) Array. <br/> (Type: `MassData`) |
+| `API: Power Spectrum` | Get Power Spectrum of Waveform | 1D Waveform array. <br/> (Type: `MassData`) | 1D Cluster(waveform) Array. <br/> (Type: `MassData`) |
 
 ## Continuous Measurement and Logging Application
 
