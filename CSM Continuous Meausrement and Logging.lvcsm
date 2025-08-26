@@ -25,9 +25,17 @@ Item 19 = "Macro: Initialize"
 Item 20 = "Macro: Exit"
 Item 21 = "API: Start"
 Item 22 = "API: Stop"
-Item 23 = "API: Acquire"
-Item 24 = "API: Update Settings"
-Item 25 = "API: Update Settings v2.0"
+Item 23 = "API: Update Settings"
+Item 24 = "API: Update Settings v1.0"
+Item 25 = "DAQ: Initialize"
+Item 26 = "DAQ: Configure"
+Item 27 = "DAQ: Start"
+Item 28 = "DAQ: Acquisite"
+Item 29 = "DAQ: Stop"
+Item 30 = "DAQ: Close"
+Item 31 = "Continuous Check"
+Item 32 = "Break Continuous"
+Item 33 = "Do: Front Panel State"
 
 [CSMVI.Algorithm.lvlib:Algorithm.vi]
 Path = "<AppDir>/Algorithm/Algorithm.vi"
@@ -133,7 +141,7 @@ Item 37 = "Do: Update Settings"
 Item 38 = "Do: Confirm Quit"
 
 [CSMModule.Acquisition]
-VIName = "Acquisition.lvlib:Acquisition.vi"
+VIName = "SoundInput-DAQ.lvlib:SoundInput-DAQ.vi"
 
 [CSMModule.Algorithm]
 VIName = "Algorithm.lvlib:Algorithm.vi"
@@ -145,5 +153,45 @@ VIName = "Logging.lvlib:Logging.vi"
 VIName = "UI.lvlib:UI(Launcher).vi"
 
 [CSM Debug Console]
-Response Timeout(s) = 30
-History Length = 50
+Response Timeout(s) = 30    
+History Length = 50    
+Periodic Enable = TRUE    
+Periodic threashold(#/s) = 0.500000    
+Periodic Check Peroid(s) = 3.000000    
+
+[CSMVI.SoundInput-DAQ.lvlib:SoundInput-DAQ.vi]
+Path = "<AppDir>/SoundInput-DAQ/SoundInput-DAQ.vi"
+
+[CSMStates.SoundInput-DAQ.lvlib:SoundInput-DAQ.vi]
+Item 0 = "Idle"
+Item 1 = "CSM Documentation"
+Item 2 = "VI Reference"
+Item 3 = "Error Handler"
+Item 4 = "Critical Error"
+Item 5 = "Target Timeout Error"
+Item 6 = "Target Error"
+Item 7 = "Initialize Core Data"
+Item 8 = "Async Response"
+Item 9 = "Response"
+Item 10 = "Async Message Posted"
+Item 11 = "Exit"
+Item 12 = "Data: Initialize"
+Item 13 = "Data: Update Indicators"
+Item 14 = "Data: Set Configuration"
+Item 15 = "Data: Get Configuration"
+Item 16 = "Data: Get Internal Data"
+Item 17 = "Data: Cleanup"
+Item 18 = "Macro: Initialize"
+Item 19 = "Macro: Exit"
+Item 20 = "API: Start"
+Item 21 = "API: Stop"
+Item 22 = "API: Update Settings"
+Item 23 = "DAQ: Initialize"
+Item 24 = "DAQ: Configure"
+Item 25 = "DAQ: Start"
+Item 26 = "DAQ: Acquisite"
+Item 27 = "DAQ: Stop"
+Item 28 = "DAQ: Close"
+Item 29 = "Continuous Check"
+Item 30 = "Break Continuous"
+Item 31 = "Do: Front Panel State"

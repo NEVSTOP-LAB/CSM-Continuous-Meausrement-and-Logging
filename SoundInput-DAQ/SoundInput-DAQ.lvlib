@@ -4,14 +4,5 @@
 	<Property Name="NI.Lib.SourceVersion" Type="Int">385908736</Property>
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
-	<Item Name="SubVI" Type="Folder">
-		<Item Name="Acquisition State.ctl" Type="VI" URL="../_support/Acquisition State.ctl"/>
-		<Item Name="Configure Hardware.vi" Type="VI" URL="../_support/Configure Hardware.vi"/>
-		<Item Name="Generate Simulated Data.vi" Type="VI" URL="../_support/Generate Simulated Data.vi"/>
-		<Item Name="Hardware Configuration.ctl" Type="VI" URL="../_support/Hardware Configuration.ctl"/>
-		<Item Name="Initialize Hardware References.vi" Type="VI" URL="../_support/Initialize Hardware References.vi"/>
-		<Item Name="Signal Type.ctl" Type="VI" URL="../_support/Signal Type.ctl"/>
-		<Item Name="Stop Acquisition.vi" Type="VI" URL="../_support/Stop Acquisition.vi"/>
-	</Item>
-	<Item Name="Acquisition.vi" Type="VI" URL="../Acquisition.vi"/>
+	<Item Name="SoundInput-DAQ.vi" Type="VI" URL="../SoundInput-DAQ.vi"/>
 </Library>

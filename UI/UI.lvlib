@@ -5,11 +5,9 @@
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Item Name="Support" Type="Folder">
-		<Item Name="Control Refs.ctl" Type="VI" URL="../_support/Control Refs.ctl"/>
-		<Item Name="Get Config File Path.vi" Type="VI" URL="../_support/Get Config File Path.vi"/>
+		<Property Name="NI.SortType" Type="Int">3</Property>
 		<Item Name="Set Enable State on Multiple Controls.vi" Type="VI" URL="../_support/Set Enable State on Multiple Controls.vi"/>
-		<Item Name="Settings Dialog.vi" Type="VI" URL="../_support/Settings Dialog.vi"/>
-		<Item Name="Settings.ctl" Type="VI" URL="../_support/Settings.ctl"/>
+		<Item Name="Analysis Window Type.ctl" Type="VI" URL="../_support/Analysis Window Type.ctl"/>
 		<Item Name="UI State.ctl" Type="VI" URL="../_support/UI State.ctl"/>
 	</Item>
 	<Item Name="UI(Launcher).vi" Type="VI" URL="../UI(Launcher).vi"/>

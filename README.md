@@ -13,12 +13,12 @@ Accomplish application of Continuous Measurement and Logging with CSM. It's much
 
 ### `Logging Module` : Logging 1D Waveform Data to tdms file
 
-| API | Description | Parameter |
-| --- | --- | --- |
-| `API: Update Settings` | Config API | Full path of data folder <br/> (Type: Plain String) |
-| `API: Start` | Start logging. Create the tdms file in data folder with time-based file name. | N/A |
-| `API: Log` | Log data to tdms file. | 1D Waveform array.  <br/> (Type: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
-| `API: Stop` | Stop logging. | N/A |
+| API | Description | Arguments | Response |
+| --- | --- | --- | --- |
+| `API: Update Settings` | Config API | Full path of data folder <br/> (Type: `Plain String`) | N/A |
+| `API: Start` | Start logging. Create the tdms file in data folder with time-based file name. | N/A | N/A |
+| `API: Log` | Log data to tdms file. | 1D Waveform array.  <br/> (Type: `massdata`) | N/A |
+| `API: Stop` | Stop logging. | N/A | N/A |
 
 **Example: (Suppose module name is "Logging")**
 
@@ -29,41 +29,41 @@ API: Start -> Logging
 API: Stop -> Logging
 ```
 
-### `Acquisition Module` : Generate Sine/Square Simulated signal data
+### DAQ Module		  
+	  
+| API | Description | Arguments | Response |
+| --- | --- | --- | --- |
+| `API: Start` | Start data generation every 200ms. | N/A | N/A |
+| `API: Stop` | Stop data generation. | N/A | N/A |
 
-| API | Description | Parameter |
-| --- | --- | --- |
-| `API: Update Settings` | Config API | Cluster:{HW(String),Signal Type(Enum)}  <br/> (Type: HexStr) |
-| `API: Update Settings v2.0` | Config API | HW:(string);Signal Type:(Sine Wave \| Square with Noise)  <br/> (Type: API String) |
-| `API: Start` | Start data generation every 200ms. | N/A |
-| `API: Stop` | Stop data generation. | N/A |
+| Status | Description | Arguments |
+| --- | --- | --- | 
+| Acquired Waveform | Simulated Data.  | 1D Waveform array. <br/> (Type: `MassData`) |
 
-| Status | Description | Parameter |
-| --- | --- | --- |
-| Acquired Waveform | Simulated Data.  | 1D Waveform array. <br/> (Type: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
+Front panel of the module VI is used for configuration.
+
+#### `Acquisition Module` : Generate Sine/Square Simulated signal data
+
+![Alt text](./_doc/Simluated%20DAQ.png)
+
+#### `SoundInput-DAQ` : Use your sound card to aquire waveform.
+
+![Alt text](./_doc/Sound_Card%20DAQ.png)   
 
 **Example: (Suppose module name is "Acquisition")**
 
 ``` text
 API: Start -> Acquisition
 API: Stop -> Acquisition
-//With CSM-API-String-Arguments-Support, update 'Signal Type' with plain text description
-API: Update Settings v2.0 >> Signal Type:Sine Wave -> Acquisition
 ```
 
 ### `Algorithm Module` : Algorithm on waveform data
 
-| API | Description | Parameter |
-| --- | --- | --- |
-| `API: FFT(Peak)` | Analyze waveform with FFT(peak) method | 1D Waveform array. <br/> (Type: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
-| `API: FFT(RMS)` | Analyze waveform with FFT(RMS) method | HW:(string);Signal Type:(Sine Wave \| 1D Waveform array. <br/> (Type: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
-| `API: Power Spectrum` | Get Power Spectrum of Waveform | 1D Waveform array. <br/> (Type: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
-
-| Status | Description | Parameter |
-| --- | --- | --- |
-| FFT(Peak) | FFT(peak) spectrum Data. | 1D Waveform array. <br/> (Type: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
-| FFT(RMS) | FFT(RMS) spectrum Data. | 1D Waveform array. <br/> (Type: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
-| Power Spectrum | Power Spectrum Data. | 1D Waveform array. <br/> (Type: [MassData Arguments](https://github.com/NEVSTOP-LAB/CSM-MassData-Parameter-Support)) |
+| API | Description | Arguments | Response |
+| --- | --- | --- | --- |
+| `API: FFT(Peak)` | Analyze waveform with FFT(peak) method | 1D Waveform array. <br/> (Type: `MassData`) | 1D Cluster(waveform) Array. <br/> (Type: `MassData`) |
+| `API: FFT(RMS)` | Analyze waveform with FFT(RMS) method | HW:(string);Signal Type:(Sine Wave \| 1D Waveform array. <br/> (Type: `MassData`) | 1D Cluster(waveform) Array. <br/> (Type: `MassData`) |
+| `API: Power Spectrum` | Get Power Spectrum of Waveform | 1D Waveform array. <br/> (Type: `MassData`) | 1D Cluster(waveform) Array. <br/> (Type: `MassData`) |
 
 ## Continuous Measurement and Logging Application
 
@@ -93,27 +93,3 @@ Acquisition --> UI : "Acquired Waveform >> UI：Update Waveform"
 Algorithm --> UI : "FFT(RMS) >> UI：Update FFT"
 Algorithm --> UI : "Power Spectrum >> UI：Update Power Spectrum"
 ```
-
-#### Start-Up Process (Macro: Initialize)
-
-Initialize data and UI. Load configuration from xml file and send config to submodules. Register "Acquired Waveform" status of "Acquisition" to "UI: Update Waveforms" state of "UI". When "Acquired Waveform" status occurs, "UI" will go to "UI: Update Waveforms" automatically.
-
-![Macro: Initialize](./_doc/Initialize%20Process.png)
-
-#### Exit Process (Macro: Exit)
-
-Stop submodules and UI module itself then.
-
-![Macro: Initialize](./_doc/Exit%20Process.png)
-
-#### Start Process (Macro: Start)
-
-Update UI and trigger submodule to work with start message. Register "Acquired Waveform" status of "Acquisition" to "API: Log" state of "Logging". When "Acquired Waveform" status occurs, "logging" will go to "API: Log" automatically.
-
-![Macro: Start](./_doc/Start%20Process.png)
-
-#### Stop Process (Macro: Stop)
-
-Update UI and stop submodules. Unregister "Acquired Waveform" status of "Acquisition".
-
-![Macro: Stop](./_doc/Stop%20Process.png)
