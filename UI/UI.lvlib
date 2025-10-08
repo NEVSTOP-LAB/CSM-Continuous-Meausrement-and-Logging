@@ -10,5 +10,7 @@
 		<Item Name="Analysis Window Type.ctl" Type="VI" URL="../_support/Analysis Window Type.ctl"/>
 		<Item Name="UI State.ctl" Type="VI" URL="../_support/UI State.ctl"/>
 	</Item>
-	<Item Name="UI(Launcher).vi" Type="VI" URL="../UI(Launcher).vi"/>
+	<Item Name="UI (Beginner).vi" Type="VI" URL="../UI (Beginner).vi"/>
+	<Item Name="UI (Experienced).vi" Type="VI" URL="../UI (Experienced).vi"/>
+	<Item Name="UI (The Advanced).vi" Type="VI" URL="../UI (The Advanced).vi"/>
 </Library>
