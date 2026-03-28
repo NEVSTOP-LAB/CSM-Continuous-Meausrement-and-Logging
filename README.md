@@ -7,7 +7,7 @@
 [![GitHub all releases](https://img.shields.io/github/downloads/NEVSTOP-LAB/CSM-Continuous-Meausrement-and-Logging/total)](https://github.com/NEVSTOP-LAB/CSM-Continuous-Meausrement-and-Logging/releases)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-A simpler, more intuitive, and elegant approach to implementing Continuous Measurement and Logging applications using the CSM (Communicable State Machine) framework.
+An example demonstrating a simpler, more intuitive, and elegant approach to building Continuous Measurement and Logging applications using the CSM (Communicable State Machine) framework.
 
 ## Reusable Modules
 
@@ -29,26 +29,26 @@ API: Start -> Logging
 API: Stop -> Logging
 ```
 
-### Data Acquisition (DAQ) Module 
-	  
+### `DAQ Module`: Acquire Waveform Data
+
 | API | Description | Arguments | Response |
 | --- | --- | --- | --- |
 | `API: Start` | Start data generation every 200ms. | N/A | N/A |
 | `API: Stop` | Stop data generation. | N/A | N/A |
 
 | Status | Description | Arguments |
-| --- | --- | --- | 
+| --- | --- | --- |
 | Acquired Waveform | Simulated Data.  | 1D Waveform array. <br/> (Type: `MassData`) |
 
 The front panel of the module VI is used for configuration.
 
-#### `Acquisition Module` : Generate Sine/Square Simulated signal data
+#### `Acquisition Module`: Generate Sine/Square Simulated Signal Data
 
 ![Alt text](./_doc/Simluated%20DAQ.png)
 
 #### `SoundInput-DAQ`: Use your sound card to acquire waveform data.
 
-![Alt text](./_doc/Sound_Card%20DAQ.png)   
+![Alt text](./_doc/Sound_Card%20DAQ.png)
 
 **Example: (Suppose module name is "Acquisition")**
 
@@ -69,7 +69,7 @@ API: Stop -> Acquisition
 
 `Logging Module` and `Acquisition Module` are designed to operate independently without any direct knowledge of each other. For a complete Continuous Measurement and Logging application, a user interface module is required to coordinate their activities. For simplicity (and to facilitate comparison with the Workers framework), the UI Module also serves as the application controller.
 
-When you need to use real hardware for data acquisition, simply create another CSM module for your specific hardware that implements the same API and status interface, then replace the `Acquisition Module` in the UI module.
+When you need to use real hardware for data acquisition, simply create another CSM module for your specific hardware that implements the same API and status interface, then replace the `Acquisition Module` in the UI module. Since the interface remains the same, the rest of the UI module requires no changes.
 
 ### UI Module
 
