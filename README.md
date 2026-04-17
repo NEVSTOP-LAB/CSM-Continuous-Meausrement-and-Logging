@@ -7,87 +7,61 @@
 [![GitHub all releases](https://img.shields.io/github/downloads/NEVSTOP-LAB/CSM-Continuous-Meausrement-and-Logging/total)](https://github.com/NEVSTOP-LAB/CSM-Continuous-Meausrement-and-Logging/releases)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-An example demonstrating a simpler, more intuitive, and elegant approach to building Continuous Measurement and Logging applications using the CSM (Communicable State Machine) framework.
+An example project showing how to build a continuous measurement and logging app with CSM (Communicable State Machine), focusing on decoupling, replaceable modules, and clear data flow.
 
-## Reusable Modules
+## Why CSM in this repo
 
-### `Logging Module`: Logging 1D Waveform Data to TDMS File
+- **Loose coupling**: acquisition, algorithm, logging, and UI communicate by message/status routing, not hardcoded references.
+- **Hardware replaceability**: keep the same public interface and swap data source modules (for example, simulated DAQ ↔ sound card DAQ).
+- **Scalable design**: add new analysis or storage modules without rewriting the existing pipeline.
 
-| API | Description | Arguments | Response |
-| --- | --- | --- | --- |
-| `API: Update Settings` | Configuration API | Full path of data folder <br/> (Type: `Plain String`) | N/A |
-| `API: Start` | Start logging. Creates a time-based named TDMS file in the data folder. | N/A | N/A |
-| `API: Log` | Log data to the TDMS file. | 1D Waveform array.  <br/> (Type: `massdata`) | N/A |
-| `API: Stop` | Stop logging. | N/A | N/A |
+## Architecture overview
 
-**Example: (Suppose module name is "Logging")**
+This repo composes four roles:
 
-``` text
-API: Update Settings >> c:\_data -> Logging
-API: Log >> MassData-Start:89012,Size:1156 -> Logging
-API: Start -> Logging
-API: Stop -> Logging
-```
+- **DAQ Source** (`Acquisition` or `SoundInput-DAQ`)
+- **Algorithm** (`Algorithm`)
+- **Logger** (`Logging`)
+- **App Orchestrator/UI** (`UI`)
 
-### `DAQ Module`: Acquire Waveform Data
+The key data flow:
 
-| API | Description | Arguments | Response |
-| --- | --- | --- | --- |
-| `API: Start` | Start data generation every 200ms. | N/A | N/A |
-| `API: Stop` | Stop data generation. | N/A | N/A |
-
-| Status | Description | Arguments |
-| --- | --- | --- |
-| Acquired Waveform | Simulated Data.  | 1D Waveform array. <br/> (Type: `MassData`) |
-
-The front panel of the module VI is used for configuration.
-
-#### `Acquisition Module`: Generate Sine/Square Simulated Signal Data
-
-![Alt text](./_doc/Simluated%20DAQ.png)
-
-#### `SoundInput-DAQ`: Use your sound card to acquire waveform data.
-
-![Alt text](./_doc/Sound_Card%20DAQ.png)
-
-**Example: (Suppose module name is "Acquisition")**
-
-``` text
-API: Start -> Acquisition
-API: Stop -> Acquisition
-```
-
-### `Algorithm Module`: Data Analysis Algorithms for Waveforms
-
-| API | Description | Arguments | Response |
-| --- | --- | --- | --- |
-| `API: FFT(Peak)` | Analyze waveform with FFT(peak) method | 1D Waveform array. <br/> (Type: `MassData`) | 1D Cluster(waveform) Array. <br/> (Type: `MassData`) |
-| `API: FFT(RMS)` | Analyze waveform with FFT(RMS) method | 1D Waveform array. <br/> (Type: `MassData`) | 1D Cluster(waveform) Array. <br/> (Type: `MassData`) |
-| `API: Power Spectrum` | Get Power Spectrum of Waveform | 1D Waveform array. <br/> (Type: `MassData`) | 1D Cluster(waveform) Array. <br/> (Type: `MassData`) |
-
-## Continuous Measurement and Logging Application
-
-`Logging Module` and `Acquisition Module` are designed to operate independently without any direct knowledge of each other. For a complete Continuous Measurement and Logging application, a user interface module is required to coordinate their activities. For simplicity (and to facilitate comparison with the Workers framework), the UI Module also serves as the application controller.
-
-When you need to use real hardware for data acquisition, simply create another CSM module for your specific hardware that implements the same API and status interface, then replace the `Acquisition Module` in the UI module. Since the interface remains the same, the rest of the UI module requires no changes.
-
-### UI Module
-
-Create a UI similar to the [Workers Continuous Measurement and Logging Example](https://www.vipm.io/package/sc_workers_framework_core/)
-
-![Alt text](./_doc/mainUI.png)
-
-Create a Block Diagram using the CSM Template. Place the `Logging Module` and `Acquisition Module` as submodules.
-
-![mainBD](./_doc/MainBD.png)
-
-``` mermaid
+```mermaid
 stateDiagram-v2
 direction LR
-Acquisition --> Algorithm : "Acquired Waveform >> Power Spectrum"
-Acquisition --> Algorithm : Acquired Waveform >> FFT(RMS)
-Acquisition --> Logging  : "Acquired Waveform >> API：Log"
-Acquisition --> UI : "Acquired Waveform >> UI：Update Waveform"
-Algorithm --> UI : "FFT(RMS) >> UI：Update FFT"
-Algorithm --> UI : "Power Spectrum >> UI：Update Power Spectrum"
+DAQ --> Algorithm : Acquired Waveform
+DAQ --> Logging : Acquired Waveform -> API: Log
+DAQ --> UI : Acquired Waveform
+Algorithm --> UI : FFT / Power Spectrum
 ```
+
+## Module interface docs
+
+Detailed APIs are documented per module (template style):
+
+- [Logging module doc](./_doc/modules/Logging.md)
+- [Acquisition module doc](./_doc/modules/Acquisition.md)
+- [SoundInput-DAQ module doc](./_doc/modules/SoundInput-DAQ.md)
+- [Algorithm module doc](./_doc/modules/Algorithm.md)
+- [Module docs index](./_doc/modules/README.md)
+
+## UI variants and differences
+
+This repo provides three UI VIs:
+
+- `UI (Beginner).vi`: easiest to read, explicit wiring and direct teaching-oriented flow.
+- `UI (Experienced).vi`: balanced readability and abstraction, suitable as daily project baseline.
+- `UI (The Advanced).vi`: most abstract and modular, optimized for reuse/expansion in larger systems.
+
+All three keep the same CSM composition idea; they mainly differ in abstraction level and engineering style.
+
+## Compare with Workers style
+
+A concise comparison note is kept in:
+
+- [Compare with Workers](./_doc/Compare%20with%20Workers.md)
+
+## References
+
+- [CSM Wiki](https://nevstop-lab.github.io/CSM-Wiki/)
+- [CSM Module Repo Template](https://github.com/NEVSTOP-LAB/CSM-Module-Repo-Template)
