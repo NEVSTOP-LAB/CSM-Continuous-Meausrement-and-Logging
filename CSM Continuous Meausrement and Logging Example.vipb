@@ -149,9 +149,6 @@ More information, please visit: https://github.com/NEVSTOP-LAB/CSM-Continuous-Me
         <Namespace/>
       </Namespace_Overrides>
       <Exclusions>
-        <Path>_doc</Path>
-      </Exclusions>
-      <Exclusions>
         <Path>.gitignore</Path>
       </Exclusions>
       <Exclusions>

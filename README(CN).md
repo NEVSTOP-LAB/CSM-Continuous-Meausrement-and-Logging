@@ -39,10 +39,10 @@ Algorithm --> UI : FFT / Power Spectrum
 
 接口细节已拆分为独立模块文档：
 
-- [Logging 模块文档](./_doc/modules/Logging.md)
-- [Acquisition 模块文档](./_doc/modules/Acquisition.md)
-- [SoundInput-DAQ 模块文档](./_doc/modules/SoundInput-DAQ.md)
-- [Algorithm 模块文档](./_doc/modules/Algorithm.md)
+- [Logging 模块文档](./Logging/Logging.md)
+- [Acquisition 模块文档](./Acquisition/Acquisition.md)
+- [SoundInput-DAQ 模块文档](./SoundInput-DAQ/SoundInput-DAQ.md)
+- [Algorithm 模块文档](./Algorithm/Algorithm.md)
 
 ## 不同 UI 的区别
 
@@ -58,7 +58,7 @@ Algorithm --> UI : FFT / Power Spectrum
 
 可参考：
 
-- [Compare with Workers](./_doc/Compare%20with%20Workers.md)
+- [Compare with Workers](./.github/doc/Compare%20with%20Workers.md)
 
 ## 参考
 

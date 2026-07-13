@@ -39,10 +39,10 @@ Algorithm --> UI : FFT / Power Spectrum
 
 Detailed APIs are documented per module (template style):
 
-- [Logging module doc](./_doc/modules/Logging.md)
-- [Acquisition module doc](./_doc/modules/Acquisition.md)
-- [SoundInput-DAQ module doc](./_doc/modules/SoundInput-DAQ.md)
-- [Algorithm module doc](./_doc/modules/Algorithm.md)
+- [Logging module doc](./Logging/Logging.md)
+- [Acquisition module doc](./Acquisition/Acquisition.md)
+- [SoundInput-DAQ module doc](./SoundInput-DAQ/SoundInput-DAQ.md)
+- [Algorithm module doc](./Algorithm/Algorithm.md)
 
 ## UI variants and differences
 
@@ -58,7 +58,7 @@ All three keep the same CSM composition idea; they mainly differ in abstraction 
 
 A concise comparison note is kept in:
 
-- [Compare with Workers](./_doc/Compare%20with%20Workers.md)
+- [Compare with Workers](./.github/doc/Compare%20with%20Workers.md)
 
 ## References
 
