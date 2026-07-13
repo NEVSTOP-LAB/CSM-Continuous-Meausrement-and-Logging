@@ -43,7 +43,6 @@ Algorithm --> UI : FFT / Power Spectrum
 - [Acquisition 模块文档](./_doc/modules/Acquisition.md)
 - [SoundInput-DAQ 模块文档](./_doc/modules/SoundInput-DAQ.md)
 - [Algorithm 模块文档](./_doc/modules/Algorithm.md)
-- [模块文档索引](./_doc/modules/README.md)
 
 ## 不同 UI 的区别
 

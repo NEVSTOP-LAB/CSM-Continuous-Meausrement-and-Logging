@@ -12,7 +12,7 @@
 | -------------- | ---------------------------------- |
 | LabVIEW 版本   | ≥ 2017                             |
 | 支持的操作系统 | Windows                            |
-| 支持 RT        | ❌ 不支持                          |
+| 支持 RT        | ✅ 支持                          |
 | 支持 64-bit    | ✅ 支持                            |
 | 所属模块组     | `Algorithm.lvlib`                  |
 
@@ -33,21 +33,21 @@
 
 使用 FFT(Peak) 方法分析波形。
 
-- **参数**：`MassData` — `Waveform[]`：一维波形数组  
+- **参数**：`MassData` — `Waveform[]`：一维波形数组
 - **响应**：`MassData` — `Cluster(Waveform)[]`
 
 ### `API: FFT(RMS)`
 
 使用 FFT(RMS) 方法分析波形。
 
-- **参数**：`MassData` — `Waveform[]`：一维波形数组  
+- **参数**：`MassData` — `Waveform[]`：一维波形数组
 - **响应**：`MassData` — `Cluster(Waveform)[]`
 
 ### `API: Power Spectrum`
 
 计算波形功率谱。
 
-- **参数**：`MassData` — `Waveform[]`：一维波形数组  
+- **参数**：`MassData` — `Waveform[]`：一维波形数组
 - **响应**：`MassData` — `Cluster(Waveform)[]`
 
 ---

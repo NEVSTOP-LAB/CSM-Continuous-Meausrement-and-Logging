@@ -43,7 +43,6 @@ Detailed APIs are documented per module (template style):
 - [Acquisition module doc](./_doc/modules/Acquisition.md)
 - [SoundInput-DAQ module doc](./_doc/modules/SoundInput-DAQ.md)
 - [Algorithm module doc](./_doc/modules/Algorithm.md)
-- [Module docs index](./_doc/modules/README.md)
 
 ## UI variants and differences
 
