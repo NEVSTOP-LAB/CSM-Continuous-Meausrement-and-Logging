@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2023-09-27 14:21:53" Modified_Date="2026-01-26 15:26:16" Creator="liyao" Comments="" ID="d3d1a97205b726bc6a3a136c21fd4b4a">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2023-09-27 14:21:53" Modified_Date="2026-07-13 20:28:11" Creator="liyao" Comments="" ID="96071bf8b8311321ac456d1f2ba4ad30">
   <Library_General_Settings>
     <Package_File_Name/>
-    <Library_Version>2025.11.0.1</Library_Version>
+    <Library_Version>2026.4.0.2</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>.</Library_Source_Folder>
     <Library_Output_Folder>vip</Library_Output_Folder>
@@ -17,10 +17,10 @@
   </Library_General_Settings>
   <Advanced_Settings>
     <Package_Dependencies>
-      <Additional_External_Dependencies>nevstop_lib_communicable_state_machine &gt;=2026.1.26.120535</Additional_External_Dependencies>
-      <Additional_External_Dependencies>nevstop_lib_csm_api_string_arguments_support &gt;=2026.1.26.124351</Additional_External_Dependencies>
-      <Additional_External_Dependencies>nevstop_lib_csm_ini_static_variable_support &gt;=2026.1.26.141741</Additional_External_Dependencies>
-      <Additional_External_Dependencies>nevstop_lib_csm_massdata_parameter_support &gt;=2026.1.26.123331</Additional_External_Dependencies>
+      <Additional_External_Dependencies>nevstop_lib_communicable_state_machine &gt;=2026.4.10.134916</Additional_External_Dependencies>
+      <Additional_External_Dependencies>nevstop_lib_csm_api_string_arguments_support &gt;=2026.4.10.111716</Additional_External_Dependencies>
+      <Additional_External_Dependencies>nevstop_lib_csm_ini_static_variable_support &gt;=2026.4.10.115919</Additional_External_Dependencies>
+      <Additional_External_Dependencies>nevstop_lib_csm_massdata_parameter_support &gt;=2026.4.10.112743</Additional_External_Dependencies>
       <Package_Conflicts>nevstop_lib_jki_state_machine++ &gt;=2023.9.9.235144</Package_Conflicts>
     </Package_Dependencies>
     <Custom_Action_VIs>
@@ -44,16 +44,8 @@ More information, please visit: https://github.com/NEVSTOP-LAB/CSM-Continuous-Me
       <Copyright/>
       <Packager>NEVSTOP</Packager>
       <URL>https://github.com/NEVSTOP-LAB/CSM-Continuous-Meausrement-and-Logging</URL>
-      <Release_Notes>[add] add a new module to aquire data from your sound card
-[update] Remove configuration dialog, use front panel of aquisition module as configuration interface.
-[update] Start the Acquisition module asynchronously to enable dynamic data source switching.  
-[update] Use CSM-Loop Addon for aquisition module
-[update] Add analysis method selection based on status registration feature of CSM
-[update] Showcase the new "Register State as status" feature in Algorithm module
-[update] Configuration is now stored in individual modules, instead of in UI module.
-[update] remove "target busy error" case, because it's obseleted.
-[update] minor change to UI module and notes.
-[update] #40 use list module API in "Macro: Exit"</Release_Notes>
+      <Release_Notes>[fix] #44 fix when clicking "OK" button, acquisition module of sound card will not be hidden.
+[fix] #45 fix the built appliction could not exit after showing the setting dialog.</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -157,9 +149,6 @@ More information, please visit: https://github.com/NEVSTOP-LAB/CSM-Continuous-Me
         <Namespace/>
       </Namespace_Overrides>
       <Exclusions>
-        <Path>_doc</Path>
-      </Exclusions>
-      <Exclusions>
         <Path>.gitignore</Path>
       </Exclusions>
       <Exclusions>
@@ -185,6 +174,15 @@ More information, please visit: https://github.com/NEVSTOP-LAB/CSM-Continuous-Me
       </Exclusions>
       <Exclusions>
         <Path>CSM Continuous Meausrement and Logging.ini</Path>
+      </Exclusions>
+      <Exclusions>
+        <Path>_build</Path>
+      </Exclusions>
+      <Exclusions>
+        <Path>_data</Path>
+      </Exclusions>
+      <Exclusions>
+        <Path>CSM Continuous Meausrement and Logging.lvcsm</Path>
       </Exclusions>
       <Place_Folder_Contents>
         <Path/>

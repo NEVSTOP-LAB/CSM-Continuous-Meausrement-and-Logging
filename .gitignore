@@ -6,3 +6,4 @@
 /_data/*
 *.csm.log
 *.csmlog
+/_build/*
