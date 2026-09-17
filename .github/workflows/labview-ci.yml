@@ -1,4 +1,13 @@
-name: CI
+# LabVIEW CI workflow
+# 单个 job 内顺序执行：Check_Broken_VIs -> BuildDailyVIP -> Upload a Build Artifact -> FTP 备份
+# paths-ignore 含 '**.yml'：仅修改 YAML 的 push 不触发本 workflow
+
+name: LabVIEW CI
+
+# 同一分支/标签的多次触发只保留最新一次运行：新 push 自动取消进行中的上一次运行
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 on:
   push:
@@ -27,10 +36,15 @@ on:
   workflow_dispatch:
 
 jobs:
-  Check_Broken_VIs:
+  labview_ci:
     runs-on: [self-hosted, lv2017]
     steps:
-      - uses: actions/checkout@v3
+      # Get env variables
+      # https://github.com/marketplace/actions/github-environment-variables-action
+      - uses: FranzDiebold/github-env-vars-action@v2
+
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4.2.2
 
       - uses: NEVSTOP-LAB/InstallNevstopPackage@main
         with:
@@ -42,8 +56,9 @@ jobs:
           PackageName2: CSM-API-String-Arguments-Support
           PackageName3: CSM-INI-Static-Variable-Support
 
+      # --- Step 1: Check for broken VIs ---
       - id: Check_Broken_VIs
-        uses: LV-APT/lvCICD@main
+        uses: NEVSTOP-LAB/lvCICD@main
         with:
           LabVIEW_Version: 2017
           Operation: VIAn_CheckBrokenVIs
@@ -51,40 +66,54 @@ jobs:
           Parameter2: NOPASSWORD
           Parameter3: YES
           Parameter4: -placeContent
+        timeout-minutes: 5
 
-  Build_VIPM_Library:
-    needs: Check_Broken_VIs
-    runs-on: [self-hosted, lv2017]
-    steps:
-      - uses: FranzDiebold/github-env-vars-action@v2
-
-      - uses: actions/checkout@v3
-
-      - uses: NEVSTOP-LAB/InstallNevstopPackage@main
-        with:
-          LabVIEW_Version: 2017
-          NEVSTOP-FTP-IP: ${{ secrets.VIPM_FTP_IP }}
-          NEVSTOP-FTP-PORT: ${{ secrets.VIPM_FTP_PORT }}
-          PackageName: Communicable-State-Machine
-          PackageName1: CSM-MassData-Parameter-Support
-          PackageName2: CSM-API-String-Arguments-Support
-          PackageName3: CSM-INI-Static-Variable-Support
-
+      # --- Step 2: Build the VIPM library ---
       - name: BuildDailyVIP
         id: build-vip
         uses: NEVSTOP-LAB/vipm-BuildViPackage@main
         with:
           LabVIEW_Version: 2017
           VipbPath: ${{ github.workspace }}
+        timeout-minutes: 60
+        continue-on-error: true
+
+      - name: Retry BuildDailyVIP if failed
+        id: retry-build-vip
+        if: ${{ steps.build-vip.outcome == 'failure' }}
+        uses: NEVSTOP-LAB/vipm-BuildViPackage@main
+        with:
+          LabVIEW_Version: 2017
+          VipbPath: ${{ github.workspace }}
+        timeout-minutes: 60
 
       - name: Upload a Build Artifact
+        id: upload-build-artifact
+        if: ${{ steps.build-vip.outcome == 'success' || steps.retry-build-vip.outcome == 'success' }}
         uses: actions/upload-artifact@v4.3.2
+        continue-on-error: true
         with:
-          name: ${{ steps.build-vip.outputs.vipName }}
-          path: ${{ steps.build-vip.outputs.vipPathName }}
+          # Artifact name
+          name: ${{ steps.retry-build-vip.outputs.vipName || steps.build-vip.outputs.vipName }}
+          path: ${{ steps.retry-build-vip.outputs.vipPathName || steps.build-vip.outputs.vipPathName }}
+          # The desired behavior if no files are found using the provided path.
           if-no-files-found: warn
           retention-days: 90
 
+      - name: Retry Upload a Build Artifact
+        if: ${{ steps.upload-build-artifact.outcome == 'failure' }}
+        uses: actions/upload-artifact@v4.3.2
+        continue-on-error: true
+        with:
+          # Artifact name
+          name: ${{ steps.retry-build-vip.outputs.vipName || steps.build-vip.outputs.vipName }}
+          path: ${{ steps.retry-build-vip.outputs.vipPathName || steps.build-vip.outputs.vipPathName }}
+          # The desired behavior if no files are found using the provided path.
+          if-no-files-found: warn
+          retention-days: 90
+
+      # Backup generated files by ftp
+      # https://github.com/marketplace/actions/simple-ftp-upload
       - name: backup Build Artifact by ftp
         uses: dennisameling/ftp-upload-action@v1.0.9
         with:
