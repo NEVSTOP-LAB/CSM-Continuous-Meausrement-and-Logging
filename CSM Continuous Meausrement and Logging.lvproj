@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0' encoding='UTF-8'?>
-<Project Type="Project" LVVersion="17008000">
+<Project Type="Project" LVVersion="21008000">
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Property Name="NI.Project.Description" Type="Str"></Property>
 	<Property Name="SMProvider.SMVersion" Type="Int">201310</Property>
@@ -27,6 +27,7 @@
 			<Item Name="Logging.lvlib" Type="Library" URL="../Logging/Logging.lvlib"/>
 			<Item Name="Algorithm.lvlib" Type="Library" URL="../Algorithm/Algorithm.lvlib"/>
 			<Item Name="SoundInput-DAQ.lvlib" Type="Library" URL="../SoundInput-DAQ/SoundInput-DAQ.lvlib"/>
+			<Item Name="Saved Data Replayer.lvlib" Type="Library" URL="../Saved Data Replayer/Saved Data Replayer.lvlib"/>
 		</Item>
 		<Item Name="UI.lvlib" Type="Library" URL="../UI/UI.lvlib"/>
 		<Item Name="Dependencies" Type="Dependencies">
@@ -156,6 +157,7 @@
 			</Item>
 			<Item Name="lvanlys.dll" Type="Document" URL="/&lt;resource&gt;/lvanlys.dll"/>
 			<Item Name="lvsound2.dll" Type="Document" URL="/&lt;resource&gt;/lvsound2.dll"/>
+			<Item Name="4 Accelerators-DAQ-NI9234.vi" Type="VI" URL="../Accelerators Data Aquirement/4 Accelerators-DAQ-NI9234.llb/4 Accelerators-DAQ-NI9234.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
